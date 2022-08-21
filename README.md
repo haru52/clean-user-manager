@@ -8,7 +8,7 @@
 
 ## Overview
 
-Example TypeScript project of [Clean Architecture](https://tatsu-zine.com/books/clean-architecture).
+Example TypeScript project of [Clean Architecture](https://asciidwango.jp/post/176293765750/clean-architecture).
 
 ## Requirements
 
@@ -19,6 +19,11 @@ Example TypeScript project of [Clean Architecture](https://tatsu-zine.com/books/
 ## Update
 
 ## Uninstall
+
+## Description
+
+- [実践クリーンアーキテクチャ │ nrslib](https://nrslib.com/clean-architecture/)
+- [Clean Architecture - アスキードワンゴ](https://asciidwango.jp/post/176293765750/clean-architecture)
 
 ## Versioning policy
 
