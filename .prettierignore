@@ -8,3 +8,5 @@
 
 # 3rd party code
 /.github/vale_styles/
+
+/tsconfig.json
