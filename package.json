@@ -1,7 +1,7 @@
 {
   "name": "base-template",
-  "version": "4.0.0",
-  "description": "Fully automated template repository which provides full compliance with the community standards.",
+  "version": "0.1.0",
+  "description": "Example TypeScript project of Clean Architecture.",
   "private": true,
   "engines": {
     "node": "^16.16.0",
@@ -29,7 +29,7 @@
     "template"
   ],
   "author": "haru",
-  "license": "WTFPL",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/haru52/clean_architecture_example/issues"
   },

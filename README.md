@@ -28,7 +28,7 @@ Example TypeScript project of [Clean Architecture](https://tatsu-zine.com/books/
 
 ## License
 
-[WTFPL](LICENSE)
+[MIT](LICENSE)
 
 ## Contributing
 
