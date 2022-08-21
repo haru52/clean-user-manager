@@ -31,8 +31,8 @@
 ## Installation
 
 ```sh
-gh repo clone <your org>/base_template # Clone the repo
-cd base_template
+gh repo clone <your org>/clean_architecture_example # Clone the repo
+cd clean_architecture_example
 make dev-install
 ```
 

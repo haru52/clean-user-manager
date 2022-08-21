@@ -5,7 +5,7 @@
 
 | Version                                                           | Supported |
 | ----------------------------------------------------------------- | --------- |
-| [Latest](https://github.com/haru52/base_template/releases/latest) | ✅        |
+| [Latest](https://github.com/haru52/clean_architecture_example/releases/latest) | ✅        |
 | Others                                                            | ❌        |
 
 ## Reporting a Vulnerability

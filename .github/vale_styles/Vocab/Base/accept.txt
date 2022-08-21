@@ -1,6 +1,6 @@
 actionlint
-Base Template Repository
 boilerplate
+Clean Architecture Example
 Commitizen
 commitlint
 Contributing Guideline

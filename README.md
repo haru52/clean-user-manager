@@ -1,18 +1,18 @@
-# Base Template Repository
+# Clean Architecture Example
 
-[![Test](https://github.com/haru52/base_template/actions/workflows/test.yml/badge.svg)](https://github.com/haru52/base_template/actions/workflows/test.yml)
-[![Release](https://github.com/haru52/base_template/actions/workflows/release.yml/badge.svg)](https://github.com/haru52/base_template/actions/workflows/release.yml)
+[![Test](https://github.com/haru52/clean_architecture_example/actions/workflows/test.yml/badge.svg)](https://github.com/haru52/clean_architecture_example/actions/workflows/test.yml)
+[![Release](https://github.com/haru52/clean_architecture_example/actions/workflows/release.yml/badge.svg)](https://github.com/haru52/clean_architecture_example/actions/workflows/release.yml)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](https://commitizen.github.io/cz-cli/)
 [![semantic-release: conventionalcommits](https://img.shields.io/badge/semantic--release-conventionalcommits-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 
-[![Contributors](images/contributors.png)](https://github.com/haru52/base_template/graphs/contributors)
+[![Contributors](images/contributors.png)](https://github.com/haru52/clean_architecture_example/graphs/contributors)
 
 ## Overview
 
 This is a fully automated template repository. You can use, extend and customize this template as you wish!
 
-This template provides full compliance with [GitHub Community Standards](https://github.com/haru52/base_template/community). This template removes your pain to add boilerplates in the repo initialization phase ☺️
+This template provides full compliance with [GitHub Community Standards](https://github.com/haru52/clean_architecture_example/community). This template removes your pain to add boilerplates in the repo initialization phase ☺️
 
 ## Requirements
 
@@ -65,17 +65,17 @@ Nothing.
 ### Community Standards
 <!-- vale Microsoft.Headings = YES -->
 
-[![Community Standards](images/community_standards.png)](https://github.com/haru52/base_template/community)
+[![Community Standards](images/community_standards.png)](https://github.com/haru52/clean_architecture_example/community)
 
 ### Security overview
 
-[![Security overview](images/security_overview.png)](https://github.com/haru52/base_template/security)
+[![Security overview](images/security_overview.png)](https://github.com/haru52/clean_architecture_example/security)
 
 Why `Code scannig alerts` feature isn't set up? Because this template has no code to scan! Of course you can set up this feature according to your project.
 
 ### Troubleshooting
 
-If this solution doesn't resolve your problem, please [open an issue](https://github.com/haru52/base_template/issues/new/choose).
+If this solution doesn't resolve your problem, please [open an issue](https://github.com/haru52/clean_architecture_example/issues/new/choose).
 
 <!-- vale Microsoft.HeadingAcronyms = NO -->
 #### CI fails
@@ -101,7 +101,7 @@ Please use [Base Template CLI][base-template-cli].
 ## Languages
 
 - English (this repo. original)
-- [日本語](https://github.com/haru52/base_template_ja#readme)
+- [日本語](https://github.com/haru52/clean_architecture_example_ja#readme)
 
 ## Contributing
 
@@ -113,4 +113,4 @@ Please use [Base Template CLI][base-template-cli].
 
 [haru](https://haru52.com/)
 
-[base-template-cli]: https://github.com/haru52/base_template_cli#readme
+[base-template-cli]: https://github.com/haru52/clean_architecture_example_cli#readme
