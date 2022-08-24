@@ -16,10 +16,10 @@ export default class SQLiteUserRepository implements UserRepository {
     const usersTableExists = await this.#tableExists()
     if (!usersTableExists) await this.#createTable();
 
-    return new Promise<User>((resolve) => {
+    return new Promise<User>(resolve => {
       this.#db.serialize(() => {
         this.#db.run('INSERT INTO users (name) VALUES (?)', name);
-        this.#db.all('SELECT id FROM users WHERE name = ?', name, (err: any, rows: any[]) => {
+        this.#db.all('SELECT id FROM users WHERE name = ?', name, (err: Error | null, rows: any[]) => {
           resolve(new User(rows[0].id, name))
         });
       });
@@ -30,8 +30,8 @@ export default class SQLiteUserRepository implements UserRepository {
     const usersTableExists = await this.#tableExists()
     if (!usersTableExists) await this.#createTable();
 
-    return new Promise<User>((resolve) => {
-      this.#db.all('SELECT * FROM users WHERE id = ? LIMIT 1', id, (err: any, rows: any[]) => {
+    return new Promise<User>(resolve => {
+      this.#db.all('SELECT * FROM users WHERE id = ? LIMIT 1', id, (err: Error | null, rows: any[]) => {
         const user = rows[0];
         resolve(new User(user.id, user.name));
       });
@@ -42,20 +42,17 @@ export default class SQLiteUserRepository implements UserRepository {
     this.#db.close();
   }
 
-  async #tableExists() {
-    let exists = true;
-    const tables = await (() => new Promise<any[]>((resolve) => {
-      this.#db.all('SELECT name FROM sqlite_master WHERE type = "table" AND name = "users"', (err: any, rows: any[]) => {
-        if (err) exists = false;
-        resolve(rows);
+  #tableExists() {
+    return new Promise<boolean>(resolve => {
+      this.#db.all('SELECT name FROM sqlite_master WHERE type = "table" AND name = "users"', (err: Error | null, rows: any[]) => {
+        if (err) resolve(false);
+        resolve(rows.length >= 1);
       });
-    }))();
-    if (tables.length === 0) exists = false;
-    return exists;
+    });
   }
 
   #createTable() {
-    return new Promise<void>((resolve) => {
+    return new Promise<void>(resolve => {
       this.#db.run('CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT UNIQUE)', resolve);
     });
   }
