@@ -7,7 +7,9 @@
     "node": "^16.17.0",
     "npm": "^8.15.0"
   },
-  "main": "index.js",
+  "files": ["dist"],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "clean": "run-s --continue-on-error clean:*",
     "clean:db": "rm -rf db && git restore db",

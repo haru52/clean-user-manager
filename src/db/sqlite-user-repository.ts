@@ -45,7 +45,7 @@ export default class SQLiteUserRepository implements UserRepository {
   #tableExists() {
     return new Promise<boolean>(resolve => {
       this.#db.all('SELECT name FROM sqlite_master WHERE type = "table" AND name = "users"', (err: Error | null, rows: any[]) => {
-        if (err) resolve(false);
+        if (err !== null) resolve(false);
         resolve(rows.length >= 1);
       });
     });
