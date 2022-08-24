@@ -12,9 +12,12 @@ function initInstances() {
   return { userController };
 }
 
-function main() {
-  const instances = initInstances();
-  instances.userController.create('John Doe');
+async function main() {
+  const { userController } = initInstances();
+  await userController.create('John Doe');
+  await userController.create('Alice Smith');
+  await userController.create('Bob Smith');
+
   sqliteUserRepository.close();
 }
 

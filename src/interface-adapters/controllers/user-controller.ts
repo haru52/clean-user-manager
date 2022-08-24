@@ -10,6 +10,6 @@ export default class UserController {
 
   create(name: string) {
     const inputData: UserAddInputData = { name };
-    this.#addInputBoundary.handle(inputData);
+    return this.#addInputBoundary.handle(inputData);
   }
 }
