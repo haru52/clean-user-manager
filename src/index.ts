@@ -1,13 +1,13 @@
+import ConsoleUserAddPresenter from './interface-adapters/presenters/user/console-user-add-presenter';
 import SQLiteUserRepository from './db/sqlite-user-repository';
 import UserAddInteractor from './use-cases/user/add/user-add-interactor';
-import UserAddConsolePresenter from './interface-adapters/presenters/user/user-add-console-presenter';
 import UserController from './interface-adapters/controllers/user-controller';
 
 const sqliteUserRepository = new SQLiteUserRepository;
 
 function initInstances() {
   // Inject dependencies
-  const userAddInteractor = new UserAddInteractor(sqliteUserRepository, new UserAddConsolePresenter);
+  const userAddInteractor = new UserAddInteractor(sqliteUserRepository, new ConsoleUserAddPresenter);
   const userController = new UserController(userAddInteractor);
   return { userController };
 }
