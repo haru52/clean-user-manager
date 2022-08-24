@@ -9,7 +9,9 @@
   },
   "main": "index.js",
   "scripts": {
-    "clean": "rm -rf dist",
+    "clean": "run-s --continue-on-error clean:*",
+    "clean:db": "rm -rf db && git restore db",
+    "clean:dist": "rm -rf dist",
     "lint": "run-s --continue-on-error lint:*",
     "lint:credentials": "[ \"$CI\" = 'true' ] || secretlint \"**/*\"",
     "lint:md": "markdownlint . \".?*/**/*.{md,markdown}\"",
