@@ -2,6 +2,6 @@ import { ConsoleViewModel } from '../interface-adapters/view-models/console-view
 
 export default class ConsoleView {
   static print(viewModel: ConsoleViewModel) {
-    console.log(viewModel.message);
+    console.log(viewModel.message); // eslint-disable-line no-console
   }
 }
