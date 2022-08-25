@@ -1,7 +1,10 @@
 {
-  "name": "user-mgr",
+  "name": "@haru52/user-mgr",
   "version": "0.1.0",
   "description": "User management system. This is an example TypeScript project of Clean Architecture.",
+  "publishConfig": {
+    "access": "public"
+  },
   "private": true,
   "engines": {
     "node": "^16.17.0",
