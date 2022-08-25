@@ -8,9 +8,13 @@
 
 ## Overview
 
-Example TypeScript project of [Clean Architecture](https://asciidwango.jp/post/176293765750/clean-architecture).
+User management system. This is an example TypeScript project of [Clean Architecture](https://asciidwango.jp/post/176293765750/clean-architecture).
 
 ## Requirements
+
+| Tool            | Version                                          |
+| --------------- | ------------------------------------------------ |
+| Node.js and npm | `engines` values in [package.json](package.json) |
 
 ## Installation
 
@@ -62,7 +66,7 @@ npm r -g @haru52/user-mgr
 
 - [Clean Architecture - アスキードワンゴ](https://asciidwango.jp/post/176293765750/clean-architecture)
 - [実践クリーンアーキテクチャ │ nrslib](https://nrslib.com/clean-architecture/)
-- [Javaでクリーンアーキテクチャする方法　Part.5:クリーンアーキテクチャの課題と解決 - ログミーTech](https://logmi.jp/tech/articles/323559)
+- [Javaでクリーンアーキテクチャする方法　Part.1:ヘキサゴナルアーキテクチャ - ログミーTech](https://logmi.jp/tech/articles/323233)
 
 <!-- vale Microsoft.Vocab = NO -->
 ## Author
