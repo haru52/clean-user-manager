@@ -14,21 +14,21 @@ export default class SQLiteUserRepository implements UserRepository {
   }
 
   async save(name: string) {
-    const usersTableExists = await this.#tableExists()
+    const usersTableExists = await this.#tableExists();
     if (!usersTableExists) await this.#createTable();
 
     return new Promise<User>(resolve => {
       this.#db.serialize(() => {
         this.#db.run('INSERT INTO users (name) VALUES (?)', name);
         this.#db.all('SELECT id FROM users WHERE name = ?', name, (err: Error | null, rows: any[]) => {
-          resolve(new User(rows[0].id, name))
+          resolve(new User(rows[0].id, name));
         });
       });
     });
   }
 
   async find(id: number) {
-    const usersTableExists = await this.#tableExists()
+    const usersTableExists = await this.#tableExists();
     if (!usersTableExists) await this.#createTable();
 
     return new Promise<User>(resolve => {

@@ -2,14 +2,14 @@ import { UserCreateInputBoundary } from '../../use-cases/user/create/user-create
 import { UserCreateInputData } from '../../use-cases/user/create/user-create-input-data';
 
 export default class UserController {
-  readonly #addInputBoundary;
+  readonly #createInputBoundary;
 
-  constructor(addInputBoundary: UserCreateInputBoundary) {
-    this.#addInputBoundary = addInputBoundary;
+  constructor(createInputBoundary: UserCreateInputBoundary) {
+    this.#createInputBoundary = createInputBoundary;
   }
 
   create(name: string) {
     const inputData: UserCreateInputData = { name };
-    return this.#addInputBoundary.handle(inputData);
+    return this.#createInputBoundary.handle(inputData);
   }
 }
