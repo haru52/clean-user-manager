@@ -1,4 +1,4 @@
-#! /usr/bin/env node
+#!/usr/bin/env node
 
 import ConsoleUi from './ui/console-ui';
 import ConsoleUserCreatePresenter from './interface-adapters/presenters/user/console-user-create-presenter';
