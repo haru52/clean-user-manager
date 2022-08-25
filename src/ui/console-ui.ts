@@ -15,14 +15,16 @@ export default class ConsoleUi {
   }
 
   handle() {
+    const commandName = this.#packageData.name.split('/')[1];
+
     this.#program
-      .name('User Manager')
+      .name(commandName)
       .description(this.#packageData.description)
       .version(this.#packageData.version);
 
     return new Promise<void>(resolve => {
       this.#program.command('create')
-        .description('Create a new user')
+        .description('create a new user')
         .argument('<name>', 'user name')
         .action(async name => {
           await this.#userController.create(name);
