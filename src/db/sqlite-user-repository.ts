@@ -1,4 +1,5 @@
 import path from 'path';
+import process from 'process';
 import sqlite3 from 'sqlite3';
 import User from '../entities/user';
 import { UserRepository } from '../use-cases/user/user-repository';
@@ -8,7 +9,7 @@ export default class SQLiteUserRepository implements UserRepository {
 
   constructor() {
     const sqlite3Client = sqlite3.verbose();
-    const dbPath = path.resolve(__dirname, '../../db/user_manager.db');
+    const dbPath = path.resolve(process.cwd(), 'user_mgr.db');
     this.#db = new sqlite3Client.Database(dbPath);
   }
 
