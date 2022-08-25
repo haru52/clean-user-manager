@@ -1,5 +1,6 @@
 #! /usr/bin/env node
 
+import { Command } from 'commander';
 import { UserRepository } from 'use-cases/user/user-repository';
 import ConsoleUserAddPresenter from './interface-adapters/presenters/user/console-user-add-presenter';
 import SQLiteUserRepository from './db/sqlite-user-repository';
@@ -17,11 +18,22 @@ function initInstances() {
 async function main() {
   const { userController, userRepository } = initInstances();
 
-  await userController.create('John Doe');
-  await userController.create('Alice Smith');
-  await userController.create('Bob Smith');
+  const program = new Command();
 
-  userRepository.close();
+  program
+    .name('User Manager')
+    .description('User management system. This is an example TypeScript project of Clean Architecture.')
+    .version('0.1.0');
+
+  program.command('create')
+    .description('Create a new user')
+    .argument('<name>', 'user name to create')
+    .action(async name => {
+      await userController.create(name);
+      userRepository.close();
+    });
+
+  program.parse();
 }
 
 main();

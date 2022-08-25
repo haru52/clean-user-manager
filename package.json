@@ -15,7 +15,9 @@
   ],
   "bin": "dist/index.js",
   "scripts": {
-    "clean": "rm -rf dist",
+    "clean": "run-s --continue-on-error clean:*",
+    "clean:dist": "rm -rf dist",
+    "clean:db": "rm -f user_mgr.db",
     "lint": "run-s --continue-on-error lint:*",
     "lint:credentials": "[ \"$CI\" = 'true' ] || secretlint \"**/*\"",
     "lint:md": "markdownlint . \".?*/**/*.{md,markdown}\"",
@@ -28,7 +30,6 @@
     "prebuild": "npm run clean",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node dist/index.js",
     "commit": "cz",
     "cm": "npm run commit",
     "prepare": "[ \"$CI\" = 'true' ] || husky install"
@@ -72,6 +73,7 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
+    "commander": "^9.4.0",
     "sqlite3": "^5.0.11"
   }
 }
