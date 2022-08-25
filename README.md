@@ -14,16 +14,37 @@ Example TypeScript project of [Clean Architecture](https://asciidwango.jp/post/1
 
 ## Installation
 
+```sh
+npm i -g @haru52/user-mgr
+```
+
 ## Usage
+
+```console
+Usage: user-mgr [options] [command]
+
+User management system. This is an example TypeScript project of Clean Architecture.
+
+Options:
+  -V, --version   output the version number
+  -h, --help      display help for command
+
+Commands:
+  create <name>   create a new user
+  help [command]  display help for command
+```
 
 ## Update
 
+```sh
+npm i -g @haru52/user-mgr
+```
+
 ## Uninstall
 
-## Description
-
-- [実践クリーンアーキテクチャ │ nrslib](https://nrslib.com/clean-architecture/)
-- [Clean Architecture - アスキードワンゴ](https://asciidwango.jp/post/176293765750/clean-architecture)
+```sh
+npm r -g @haru52/user-mgr
+```
 
 ## Versioning policy
 
@@ -36,6 +57,12 @@ Example TypeScript project of [Clean Architecture](https://asciidwango.jp/post/1
 ## Contributing
 
 [Contributing Guideline](CONTRIBUTING.md)
+
+## References
+
+- [Clean Architecture - アスキードワンゴ](https://asciidwango.jp/post/176293765750/clean-architecture)
+- [実践クリーンアーキテクチャ │ nrslib](https://nrslib.com/clean-architecture/)
+- [Javaでクリーンアーキテクチャする方法　Part.5:クリーンアーキテクチャの課題と解決 - ログミーTech](https://logmi.jp/tech/articles/323559)
 
 <!-- vale Microsoft.Vocab = NO -->
 ## Author
