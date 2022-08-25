@@ -12,8 +12,11 @@ const packageData: PackageData = require('../package.json');
 
 function initInstances() {
   // Inject dependencies
-  const userRepository: UserRepository = new SQLiteUserRepository;
-  const userCreateInteractor = new UserCreateInteractor(userRepository, new ConsoleUserCreatePresenter);
+  const userRepository: UserRepository = new SQLiteUserRepository();
+  const userCreateInteractor = new UserCreateInteractor(
+    userRepository,
+    new ConsoleUserCreatePresenter()
+  );
   const userController = new UserController(userCreateInteractor);
   const consoleUi = new ConsoleUi(packageData, userController);
   return { consoleUi, userRepository };

@@ -22,11 +22,12 @@ export default class ConsoleUi {
       .description(this.#packageData.description)
       .version(this.#packageData.version);
 
-    return new Promise<void>(resolve => {
-      this.#program.command('create')
+    return new Promise<void>((resolve) => {
+      this.#program
+        .command('create')
         .description('create a new user')
         .argument('<name>', 'user name')
-        .action(async name => {
+        .action(async (name) => {
           await this.#userController.create(name);
           resolve();
         });

@@ -9,7 +9,10 @@ export default class UserCreateInteractor implements UserCreateInputBoundary {
 
   readonly #outputBoundary;
 
-  constructor(repository: UserRepository, outputBoundary: UserCreateOutputBoundary) {
+  constructor(
+    repository: UserRepository,
+    outputBoundary: UserCreateOutputBoundary
+  ) {
     this.#repository = repository;
     this.#outputBoundary = outputBoundary;
   }
