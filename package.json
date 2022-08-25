@@ -1,19 +1,18 @@
 {
-  "name": "clean-architecture-example",
+  "name": "user-mgr",
   "version": "0.1.0",
-  "description": "Example TypeScript project of Clean Architecture.",
+  "description": "User management system. This is an example TypeScript project of Clean Architecture.",
   "private": true,
   "engines": {
     "node": "^16.17.0",
     "npm": "^8.15.0"
   },
-  "files": ["dist"],
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "bin": "dist/index.js",
   "scripts": {
-    "clean": "run-s --continue-on-error clean:*",
-    "clean:db": "rm -rf db && git restore db",
-    "clean:dist": "rm -rf dist",
+    "clean": "rm -rf dist",
     "lint": "run-s --continue-on-error lint:*",
     "lint:credentials": "[ \"$CI\" = 'true' ] || secretlint \"**/*\"",
     "lint:md": "markdownlint . \".?*/**/*.{md,markdown}\"",
@@ -23,6 +22,7 @@
     "format:md": "npm run lint:md -- --fix",
     "format:prettier": "prettier --write .",
     "format:es": "npm run lint:es -- --fix",
+    "prebuild": "npm run clean",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/index.js",
@@ -35,7 +35,7 @@
     "url": "git+https://github.com/haru52/clean_architecture_example.git"
   },
   "keywords": [
-    "template"
+    "Clean Architecture"
   ],
   "author": "haru",
   "license": "MIT",
