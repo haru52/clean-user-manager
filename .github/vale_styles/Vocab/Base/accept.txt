@@ -1,17 +1,11 @@
 actionlint
-boilerplate
 Clean Architecture Example
-Commitizen
-commitlint
 Contributing Guideline
 conventionalcommits
-Dependabot
 gibo
 haru
 MIT
 npm
 nrslib
 repo
-reviewdog
-Secretlint
 yamllint
