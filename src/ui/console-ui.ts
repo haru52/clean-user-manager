@@ -9,9 +9,9 @@ export default class ConsoleUi {
 
   readonly #userController;
 
-  constructor(packageData: PackageData, controller: UserController) {
+  constructor(packageData: PackageData, userController: UserController) {
     this.#packageData = packageData;
-    this.#userController = controller;
+    this.#userController = userController;
   }
 
   handle() {
@@ -28,7 +28,7 @@ export default class ConsoleUi {
           await this.#userController.create(name);
           resolve();
         });
-  
+
       this.#program.parse();
     });
   }

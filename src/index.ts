@@ -15,12 +15,12 @@ function initInstances() {
   const userRepository: UserRepository = new SQLiteUserRepository;
   const userAddInteractor = new UserAddInteractor(userRepository, new ConsoleUserAddPresenter);
   const userController = new UserController(userAddInteractor);
-  return { userController, userRepository };
+  const consoleUi = new ConsoleUi(packageData, userController);
+  return { consoleUi, userRepository };
 }
 
 async function main() {
-  const { userController, userRepository } = initInstances();
-  const consoleUi = new ConsoleUi(packageData, userController);
+  const { consoleUi, userRepository } = initInstances();
   await consoleUi.handle();
 
   userRepository.close();
