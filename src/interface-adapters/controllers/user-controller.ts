@@ -2,7 +2,7 @@ import { UserAddInputBoundary } from '../../use-cases/user/add/user-add-input-bo
 import { UserAddInputData } from '../../use-cases/user/add/user-add-input-data';
 
 export default class UserController {
-  readonly #addInputBoundary: UserAddInputBoundary;
+  readonly #addInputBoundary;
 
   constructor(addInputBoundary: UserAddInputBoundary) {
     this.#addInputBoundary = addInputBoundary;

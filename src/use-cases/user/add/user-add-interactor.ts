@@ -5,9 +5,9 @@ import { UserAddOutputData } from './user-add-output-data';
 import { UserRepository } from '../user-repository';
 
 export default class UserAddInteractor implements UserAddInputBoundary {
-  readonly #repository: UserRepository;
+  readonly #repository;
 
-  readonly #outputBoundary: UserAddOutputBoundary;
+  readonly #outputBoundary;
 
   constructor(repository: UserRepository, outputBoundary: UserAddOutputBoundary) {
     this.#repository = repository;
