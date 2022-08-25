@@ -1,13 +1,14 @@
 #! /usr/bin/env node
 
-import { Command } from 'commander';
-import { UserRepository } from 'use-cases/user/user-repository';
+import ConsoleUi from './ui/console-ui';
 import ConsoleUserAddPresenter from './interface-adapters/presenters/user/console-user-add-presenter';
+import { PackageData } from './ui/package-data';
 import SQLiteUserRepository from './db/sqlite-user-repository';
 import UserAddInteractor from './use-cases/user/add/user-add-interactor';
 import UserController from './interface-adapters/controllers/user-controller';
+import { UserRepository } from './use-cases/user/user-repository';
 
-const packageJson = require('../package.json');
+const packageData: PackageData = require('../package.json');
 
 function initInstances() {
   // Inject dependencies
@@ -19,23 +20,10 @@ function initInstances() {
 
 async function main() {
   const { userController, userRepository } = initInstances();
+  const consoleUi = new ConsoleUi(packageData, userController);
+  await consoleUi.handle();
 
-  const program = new Command();
-
-  program
-    .name('User Manager')
-    .description(packageJson.description)
-    .version(packageJson.version);
-
-  program.command('create')
-    .description('Create a new user')
-    .argument('<name>', 'user name to create')
-    .action(async name => {
-      await userController.create(name);
-      userRepository.close();
-    });
-
-  program.parse();
+  userRepository.close();
 }
 
 main();
