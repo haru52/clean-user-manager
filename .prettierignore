@@ -10,4 +10,5 @@
 /.github/vale_styles/
 
 # Others
+/dist/
 /tsconfig.json

@@ -27,7 +27,7 @@
     "format:md": "npm run lint:md -- --fix",
     "format:prettier": "prettier --write .",
     "format:es": "npm run lint:es -- --fix",
-    "prebuild": "npm run clean",
+    "prebuild": "npm run clean:dist",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "commit": "cz",
