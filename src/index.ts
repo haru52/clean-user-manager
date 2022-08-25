@@ -7,6 +7,8 @@ import SQLiteUserRepository from './db/sqlite-user-repository';
 import UserAddInteractor from './use-cases/user/add/user-add-interactor';
 import UserController from './interface-adapters/controllers/user-controller';
 
+const packageJson = require('../package.json');
+
 function initInstances() {
   // Inject dependencies
   const userRepository: UserRepository = new SQLiteUserRepository;
@@ -22,8 +24,8 @@ async function main() {
 
   program
     .name('User Manager')
-    .description('User management system. This is an example TypeScript project of Clean Architecture.')
-    .version('0.1.0');
+    .description(packageJson.description)
+    .version(packageJson.version);
 
   program.command('create')
     .description('Create a new user')
