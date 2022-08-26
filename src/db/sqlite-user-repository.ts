@@ -7,10 +7,15 @@ import { UserRepository } from '../use-cases/user/user-repository';
 export default class SQLiteUserRepository implements UserRepository {
   readonly #db;
 
-  constructor() {
+  static readonly #defaultDbPath = path.resolve(process.cwd(), 'user_mgr.db');
+
+  constructor(
+    useInMemory = false,
+    dbPath = SQLiteUserRepository.#defaultDbPath
+  ) {
     const sqlite3Client = sqlite3.verbose();
-    const dbPath = path.resolve(process.cwd(), 'user_mgr.db');
-    this.#db = new sqlite3Client.Database(dbPath);
+    const db = useInMemory ? ':memory:' : dbPath;
+    this.#db = new sqlite3Client.Database(db);
   }
 
   async save(name: string) {
