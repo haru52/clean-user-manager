@@ -5,6 +5,13 @@ export default class UserName {
 
   static readonly #maxNameLength = 128;
 
+  /**
+   * Initialize a UserName instance.
+   *
+   * @param value - Name value. This must be 1 to 128 characters
+   *
+   * @throws {@link RangeError}
+   */
   constructor(value: string) {
     if (!UserName.#validate(value))
       throw new RangeError('value length must be between 1 and 128');

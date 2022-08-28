@@ -4,7 +4,7 @@ export default class UserId {
   /**
    * Initialize a UserId instance.
    *
-   * @param value - ID vlaue. this must be a natural number
+   * @param value - ID value. This must be a natural number
    *
    * @throws {@link RangeError}
    */
