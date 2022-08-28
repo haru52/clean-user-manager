@@ -1,5 +1,5 @@
 import ConsoleView from './console-view';
-import { ConsoleViewModel } from '../../interface-adapters/view-models/console-view-model';
+import { ConsoleViewModel } from '../../adapters/view-models/console-view-model';
 
 describe('#print', () => {
   test("shouldn't throw errors", () => {

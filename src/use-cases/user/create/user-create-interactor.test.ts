@@ -1,4 +1,4 @@
-import ConsoleUserCreatePresenter from '../../../interface-adapters/presenters/user/console-user-create-presenter';
+import ConsoleUserCreatePresenter from '../../../adapters/presenters/user/console-user-create-presenter';
 import SQLiteUserRepository from '../../../external/db/sqlite-user-repository';
 import { UserCreateInputData } from './user-create-input-data';
 import UserCreateInteractor from './user-create-interactor';
