@@ -20,7 +20,7 @@ export default class UserCreateInteractor implements UserCreateInputBoundary {
   async handle(inputData: UserCreateInputData) {
     const user = await this.#repository.save(inputData.name);
     const outputData: UserCreateOutputData = {
-      name: user.name,
+      name: user.name.value,
       id: user.id.value,
     };
     this.#outputBoundary.present(outputData);

@@ -1,4 +1,5 @@
 import UserId from './user-id';
+import UserName from './user-name';
 
 export default class User {
   readonly id;
@@ -7,6 +8,6 @@ export default class User {
 
   constructor(id: number, name: string) {
     this.id = new UserId(id);
-    this.name = name;
+    this.name = new UserName(name);
   }
 }

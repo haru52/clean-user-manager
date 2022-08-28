@@ -8,6 +8,6 @@ describe('John Doe with ID 2', () => {
   });
 
   test('Name is "John Doe"', () => {
-    expect(johnDoe.name).toBe('John Doe');
+    expect(johnDoe.name.value).toBe('John Doe');
   });
 });
