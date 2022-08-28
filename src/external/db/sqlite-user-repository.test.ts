@@ -1,5 +1,5 @@
 import SQLiteUserRepository from './sqlite-user-repository';
-import User from '../entities/user';
+import User from '../../entities/user';
 
 const sqliteUserRepository = new SQLiteUserRepository(true);
 const id = 1;

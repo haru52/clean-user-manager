@@ -1,6 +1,6 @@
 import { Command } from 'commander';
 import { PackageData } from './package-data';
-import UserController from '../interface-adapters/controllers/user-controller';
+import UserController from '../../interface-adapters/controllers/user-controller';
 
 export default class ConsoleUi {
   readonly #program = new Command();

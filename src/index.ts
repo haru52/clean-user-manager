@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-import ConsoleUi from './ui/console-ui';
+import ConsoleUi from './external/ui/console-ui';
 import ConsoleUserCreatePresenter from './interface-adapters/presenters/user/console-user-create-presenter';
-import { PackageData } from './ui/package-data';
-import SQLiteUserRepository from './db/sqlite-user-repository';
+import { PackageData } from './external/ui/package-data';
+import SQLiteUserRepository from './external/db/sqlite-user-repository';
 import UserController from './interface-adapters/controllers/user-controller';
 import UserCreateInteractor from './use-cases/user/create/user-create-interactor';
 import { UserRepository } from './use-cases/user/user-repository';

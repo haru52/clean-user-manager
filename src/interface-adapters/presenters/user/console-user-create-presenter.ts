@@ -1,4 +1,4 @@
-import ConsoleView from '../../../views/console-view';
+import ConsoleView from '../../../external/views/console-view';
 import { ConsoleViewModel } from '../../view-models/console-view-model';
 import { UserCreateOutputBoundary } from '../../../use-cases/user/create/user-create-output-boundary';
 import { UserCreateOutputData } from '../../../use-cases/user/create/user-create-output-data';

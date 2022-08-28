@@ -1,8 +1,8 @@
 import path from 'path';
 import process from 'process';
 import sqlite3 from 'sqlite3';
-import User from '../entities/user';
-import { UserRepository } from '../use-cases/user/user-repository';
+import User from '../../entities/user';
+import { UserRepository } from '../../use-cases/user/user-repository';
 
 export default class SQLiteUserRepository implements UserRepository {
   readonly #db;
