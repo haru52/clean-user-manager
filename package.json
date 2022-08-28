@@ -28,7 +28,7 @@
     "format:prettier": "prettier --write .",
     "format:es": "npm run lint:es -- --fix",
     "prebuild": "npm run clean:dist",
-    "build": "tsc",
+    "build": "tsc --project tsconfig.build.json",
     "test": "jest --silent",
     "commit": "cz",
     "cm": "npm run commit",
