@@ -2,7 +2,7 @@ import { UserCreateInputBoundary } from './user-create-input-boundary';
 import { UserCreateInputData } from './user-create-input-data';
 import { UserCreateOutputBoundary } from './user-create-output-boundary';
 import { UserCreateOutputData } from './user-create-output-data';
-import { UserRepository } from '../user-repository';
+import { UserRepository } from '../../../adapters/repositories/user-repository';
 
 export default class UserCreateInteractor implements UserCreateInputBoundary {
   readonly #repository;

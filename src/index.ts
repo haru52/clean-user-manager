@@ -7,7 +7,7 @@ import { PackageData } from './external/ui/package-data';
 import SQLiteUserRepository from './external/db/sqlite-user-repository';
 import UserController from './adapters/controllers/user-controller';
 import UserCreateInteractor from './use-cases/user/create/user-create-interactor';
-import { UserRepository } from './use-cases/user/user-repository';
+import { UserRepository } from './adapters/repositories/user-repository';
 
 const packageData: PackageData = require('../package.json');
 
