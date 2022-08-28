@@ -1,6 +1,7 @@
 import path from 'path';
 import process from 'process';
 import sqlite3 from 'sqlite3';
+import NotFoundError from './not-found-error';
 import User from '../../entities/user';
 import { UserRepository } from '../../adapters/repositories/user-repository';
 
@@ -22,13 +23,29 @@ export default class SQLiteUserRepository implements UserRepository {
     const usersTableExists = await this.#tableExists();
     if (!usersTableExists) await this.#createTable();
 
-    return new Promise<User>((resolve) => {
+    return new Promise<User>((resolve, reject) => {
       this.#db.serialize(() => {
-        this.#db.run('INSERT INTO users (name) VALUES (?)', name);
+        this.#db.run(
+          'INSERT INTO users (name) VALUES (?)',
+          name,
+          (err: Error | null) => {
+            if (err !== null) reject(err);
+          }
+        );
         this.#db.all(
           'SELECT id FROM users WHERE name = ?',
           name,
           (err: Error | null, rows: any[]) => {
+            if (err !== null) {
+              reject(err);
+              return;
+            }
+            if (rows.length === 0) {
+              reject(
+                new NotFoundError(`Not found a user which name is "${name}"`)
+              );
+              return;
+            }
             resolve(new User(rows[0].id, name));
           }
         );
@@ -40,11 +57,19 @@ export default class SQLiteUserRepository implements UserRepository {
     const usersTableExists = await this.#tableExists();
     if (!usersTableExists) await this.#createTable();
 
-    return new Promise<User>((resolve) => {
+    return new Promise<User>((resolve, reject) => {
       this.#db.all(
         'SELECT * FROM users WHERE id = ? LIMIT 1',
         id,
         (err: Error | null, rows: any[]) => {
+          if (err !== null) {
+            reject(err);
+            return;
+          }
+          if (rows.length === 0) {
+            reject(new NotFoundError(`Not found a user with ID ${id}`));
+            return;
+          }
           const user = rows[0];
           resolve(new User(user.id, user.name));
         }
@@ -57,11 +82,18 @@ export default class SQLiteUserRepository implements UserRepository {
   }
 
   #tableExists() {
-    return new Promise<boolean>((resolve) => {
+    return new Promise<boolean>((resolve, reject) => {
       this.#db.all(
         'SELECT name FROM sqlite_master WHERE type = "table" AND name = "users"',
         (err: Error | null, rows: any[]) => {
-          if (err !== null) resolve(false);
+          if (err !== null) {
+            reject(err);
+            return;
+          }
+          if (rows === undefined) {
+            reject(err);
+            return;
+          }
           resolve(rows.length >= 1);
         }
       );
@@ -69,10 +101,16 @@ export default class SQLiteUserRepository implements UserRepository {
   }
 
   #createTable() {
-    return new Promise<void>((resolve) => {
+    return new Promise<void>((resolve, reject) => {
       this.#db.run(
         'CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT UNIQUE)',
-        resolve
+        (err: Error | null) => {
+          if (err !== null) {
+            reject(err);
+            return;
+          }
+          resolve();
+        }
       );
     });
   }
