@@ -11,9 +11,11 @@ export default class UserCreatePresenter implements UserCreateOutputBoundary {
   }
 
   present(outputData: UserCreateOutputData) {
-    const viewModel: ViewModel = {
-      message: `User “${outputData.name}” has been created with ID ${outputData.id} successfully!`,
-    };
+    const message =
+      outputData.err === undefined
+        ? `User “${outputData.name}” has been created with ID ${outputData.id} successfully!`
+        : outputData.err.message;
+    const viewModel: ViewModel = { message };
     this.#view.print(viewModel);
   }
 }
