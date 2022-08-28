@@ -1,4 +1,5 @@
-import ConsoleUserCreatePresenter from '../../../adapters/presenters/user/console-user-create-presenter';
+import ConsoleView from '../../../external/views/console-view';
+import UserCreatePresenter from '../../../adapters/presenters/user/user-create-presenter';
 import SQLiteUserRepository from '../../../external/db/sqlite-user-repository';
 import { UserCreateInputData } from './user-create-input-data';
 import UserCreateInteractor from './user-create-interactor';
@@ -6,7 +7,7 @@ import { UserCreateOutputData } from './user-create-output-data';
 
 describe('#handle({ name: "John Doe" })', () => {
   const repository = new SQLiteUserRepository(true);
-  const presenter = new ConsoleUserCreatePresenter();
+  const presenter = new UserCreatePresenter(new ConsoleView());
   const interactor = new UserCreateInteractor(repository, presenter);
   const name = 'John Doe';
   const inputData: UserCreateInputData = { name };

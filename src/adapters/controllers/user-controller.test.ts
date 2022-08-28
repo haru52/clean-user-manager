@@ -1,13 +1,14 @@
-import ConsoleUserCreatePresenter from '../presenters/user/console-user-create-presenter';
+import ConsoleView from '../../external/views/console-view';
 import SQLiteUserRepository from '../../external/db/sqlite-user-repository';
 import UserController from './user-controller';
 import { UserCreateInputData } from '../../use-cases/user/create/user-create-input-data';
 import UserCreateInteractor from '../../use-cases/user/create/user-create-interactor';
+import UserCreatePresenter from '../presenters/user/user-create-presenter';
 
 describe("#create('John Doe')", () => {
   const userCreateInteractor = new UserCreateInteractor(
     new SQLiteUserRepository(true),
-    new ConsoleUserCreatePresenter()
+    new UserCreatePresenter(new ConsoleView())
   );
   const userController = new UserController(userCreateInteractor);
   const name = 'John Doe';

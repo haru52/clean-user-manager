@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 import ConsoleUi from './external/ui/console-ui';
-import ConsoleUserCreatePresenter from './adapters/presenters/user/console-user-create-presenter';
+import ConsoleView from './external/views/console-view';
+import UserCreatePresenter from './adapters/presenters/user/user-create-presenter';
 import { PackageData } from './external/ui/package-data';
 import SQLiteUserRepository from './external/db/sqlite-user-repository';
 import UserController from './adapters/controllers/user-controller';
@@ -15,7 +16,7 @@ function initInstances() {
   const userRepository: UserRepository = new SQLiteUserRepository();
   const userCreateInteractor = new UserCreateInteractor(
     userRepository,
-    new ConsoleUserCreatePresenter()
+    new UserCreatePresenter(new ConsoleView())
   );
   const userController = new UserController(userCreateInteractor);
   const consoleUi = new ConsoleUi(packageData, userController);

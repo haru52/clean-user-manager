@@ -1,9 +1,10 @@
 import ConsoleView from './console-view';
-import { ConsoleViewModel } from '../../adapters/view-models/console-view-model';
+import { ViewModel } from '../../adapters/view-model';
 
 describe('#print', () => {
   test("shouldn't throw errors", () => {
-    const viewModel: ConsoleViewModel = { message: 'Hello, world!' };
-    expect(() => ConsoleView.print(viewModel)).not.toThrow();
+    const view = new ConsoleView();
+    const viewModel: ViewModel = { message: 'Hello, world!' };
+    expect(() => view.print(viewModel)).not.toThrow();
   });
 });
