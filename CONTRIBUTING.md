@@ -31,8 +31,8 @@
 ## Installation
 
 ```sh
-gh repo clone <your org>/clean_architecture_example # Clone the repo
-cd clean_architecture_example
+gh repo clone <your org>/clean-user-manager # Clone the repo
+cd clean-user-manager
 make dev-install
 ```
 

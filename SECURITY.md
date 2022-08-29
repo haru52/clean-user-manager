@@ -3,10 +3,10 @@
 
 ## Supported Versions
 
-| Version                                                                        | Supported |
-| ------------------------------------------------------------------------------ | --------- |
-| [Latest](https://github.com/haru52/clean_architecture_example/releases/latest) | ✅        |
-| Others                                                                         | ❌        |
+| Version                                                                | Supported |
+| ---------------------------------------------------------------------- | --------- |
+| [Latest](https://github.com/haru52/clean-user-manager/releases/latest) | ✅        |
+| Others                                                                 | ❌        |
 
 ## Reporting a Vulnerability
 
