@@ -1,10 +1,10 @@
 import RegistrationError from '../../registration-error';
 import User from '../../../entities/user';
+import UserName from '../../../entities/user-name';
 import { UserRegisterInputBoundary } from './user-register-input-boundary';
 import { UserRegisterInputData } from './user-register-input-data';
 import { UserRegisterOutputBoundary } from './user-register-output-boundary';
 import { UserRegisterOutputData } from './user-register-output-data';
-import UserName from '../../../entities/user-name';
 import { UserRepository } from '../../../adapters/repositories/user-repository';
 
 export default class UserRegisterInteractor
