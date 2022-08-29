@@ -1,16 +1,18 @@
-import { UserCreateOutputBoundary } from '../../../use-cases/user/create/user-create-output-boundary';
-import { UserCreateOutputData } from '../../../use-cases/user/create/user-create-output-data';
+import { UserRegisterOutputBoundary } from '../../../use-cases/user/register/user-register-output-boundary';
+import { UserRegisterOutputData } from '../../../use-cases/user/register/user-register-output-data';
 import { View } from '../../view';
 import { ViewModel } from '../../view-model';
 
-export default class UserCreatePresenter implements UserCreateOutputBoundary {
+export default class UserRegisterPresenter
+  implements UserRegisterOutputBoundary
+{
   readonly #view;
 
   constructor(view: View) {
     this.#view = view;
   }
 
-  handle(outputData: UserCreateOutputData) {
+  handle(outputData: UserRegisterOutputData) {
     const message =
       outputData.err === undefined
         ? `User “${outputData.name}” has been created with ID ${outputData.id} successfully!`

@@ -1,15 +1,15 @@
 import ConsoleView from '../../../external/views/console-view';
-import { UserCreateOutputData } from '../../../use-cases/user/create/user-create-output-data';
-import UserCreatePresenter from './user-create-presenter';
+import { UserRegisterOutputData } from '../../../use-cases/user/register/user-register-output-data';
+import UserRegisterPresenter from './user-register-presenter';
 import { View } from '../../view';
 import { ViewModel } from '../../view-model';
 
 describe('#handle', () => {
   const view: View = new ConsoleView();
-  const presenter = new UserCreatePresenter(view);
+  const presenter = new UserRegisterPresenter(view);
   const id = 1;
   const name = 'John Doe';
-  const outputData: UserCreateOutputData = { id, name };
+  const outputData: UserRegisterOutputData = { id, name };
 
   test("hasn't thrown an error", () => {
     expect(() => presenter.handle(outputData)).not.toThrow();

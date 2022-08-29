@@ -1,21 +1,22 @@
 import ConsoleView from '../../external/views/console-view';
 import SqliteUserRepository from '../../external/db/sqlite-user-repository';
 import UserController from './user-controller';
-import { UserCreateInputBoundary } from '../../use-cases/user/create/user-create-input-boundary';
-import { UserCreateInputData } from '../../use-cases/user/create/user-create-input-data';
-import UserCreateInteractor from '../../use-cases/user/create/user-create-interactor';
-import UserCreatePresenter from '../presenters/user/user-create-presenter';
+import { UserRegisterInputBoundary } from '../../use-cases/user/register/user-register-input-boundary';
+import { UserRegisterInputData } from '../../use-cases/user/register/user-register-input-data';
+import UserRegisterInteractor from '../../use-cases/user/register/user-register-interactor';
+import UserRegisterPresenter from '../presenters/user/user-register-presenter';
 
 describe('#create("John Doe")', () => {
-  const createInputBoundary: UserCreateInputBoundary = new UserCreateInteractor(
-    new SqliteUserRepository(true),
-    new UserCreatePresenter(new ConsoleView())
-  );
+  const createInputBoundary: UserRegisterInputBoundary =
+    new UserRegisterInteractor(
+      new SqliteUserRepository(true),
+      new UserRegisterPresenter(new ConsoleView())
+    );
   const controller = new UserController(createInputBoundary);
   const name = 'John Doe';
 
   test("hasn't been rejected", async () => {
-    await expect(controller.create(name)).resolves.not.toThrow();
+    await expect(controller.register(name)).resolves.not.toThrow();
   });
 
   const handleSpy = jest.spyOn(createInputBoundary, 'handle');
@@ -25,7 +26,7 @@ describe('#create("John Doe")', () => {
   });
 
   test('userCreateInputBoundary.handle() has been called with { name: "John Doe" }', () => {
-    const inputData: UserCreateInputData = { name };
+    const inputData: UserRegisterInputData = { name };
     expect(handleSpy).toHaveBeenCalledWith(inputData);
   });
 });

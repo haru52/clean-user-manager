@@ -3,9 +3,9 @@ import ConsoleView from './external/views/console-view';
 import { PackageData } from './external/ui/package-data';
 import SqliteUserRepository from './external/db/sqlite-user-repository';
 import UserController from './adapters/controllers/user-controller';
-import { UserCreateInputBoundary } from './use-cases/user/create/user-create-input-boundary';
-import UserCreateInteractor from './use-cases/user/create/user-create-interactor';
-import UserCreatePresenter from './adapters/presenters/user/user-create-presenter';
+import { UserRegisterInputBoundary } from './use-cases/user/register/user-register-input-boundary';
+import UserRegisterInteractor from './use-cases/user/register/user-register-interactor';
+import UserRegisterPresenter from './adapters/presenters/user/user-register-presenter';
 import { UserRepository } from './adapters/repositories/user-repository';
 
 const packageData: PackageData = require('../package.json');
@@ -16,10 +16,10 @@ export default class DiManager {
   readonly consoleUi;
 
   constructor() {
-    const userCreateInputBoundary: UserCreateInputBoundary =
-      new UserCreateInteractor(
+    const userCreateInputBoundary: UserRegisterInputBoundary =
+      new UserRegisterInteractor(
         this.userRepository,
-        new UserCreatePresenter(new ConsoleView())
+        new UserRegisterPresenter(new ConsoleView())
       );
     const userController = new UserController(userCreateInputBoundary);
     this.consoleUi = new ConsoleUi(packageData, userController);

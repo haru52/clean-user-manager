@@ -1,15 +1,15 @@
-import { UserCreateInputBoundary } from '../../use-cases/user/create/user-create-input-boundary';
-import { UserCreateInputData } from '../../use-cases/user/create/user-create-input-data';
+import { UserRegisterInputBoundary } from '../../use-cases/user/register/user-register-input-boundary';
+import { UserRegisterInputData } from '../../use-cases/user/register/user-register-input-data';
 
 export default class UserController {
   readonly #createInputBoundary;
 
-  constructor(createInputBoundary: UserCreateInputBoundary) {
+  constructor(createInputBoundary: UserRegisterInputBoundary) {
     this.#createInputBoundary = createInputBoundary;
   }
 
-  create(name: string) {
-    const inputData: UserCreateInputData = { name };
+  register(name: string) {
+    const inputData: UserRegisterInputData = { name };
     return this.#createInputBoundary.handle(inputData);
   }
 }
