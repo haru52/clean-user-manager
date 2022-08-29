@@ -30,12 +30,12 @@ Usage: user-mgr [options] [command]
 User management system. This is an example TypeScript project of Clean Architecture.
 
 Options:
-  -V, --version   output the version number
-  -h, --help      display help for command
+  -V, --version    output the version number
+  -h, --help       display help for command
 
 Commands:
-  create <name>   create a new user
-  help [command]  display help for command
+  register <name>  register a new user
+  help [command]   display help for command
 ```
 
 ## Update
