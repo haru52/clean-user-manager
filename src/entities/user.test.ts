@@ -1,13 +1,15 @@
 import User from './user';
 
-describe('John Doe with ID 2', () => {
-  const johnDoe = new User(2, 'John Doe');
+describe('#constructor', () => {
+  const id = 1;
+  const name = 'John Doe';
+  const johnDoe = new User(id, name);
 
-  test('ID is 2', () => {
-    expect(johnDoe.id.value).toBe(2);
+  test('ID is 1', () => {
+    expect(johnDoe.id.value).toBe(id);
   });
 
   test('Name is "John Doe"', () => {
-    expect(johnDoe.name.value).toBe('John Doe');
+    expect(johnDoe.name.value).toBe(name);
   });
 });

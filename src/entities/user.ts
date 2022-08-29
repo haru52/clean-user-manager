@@ -12,7 +12,7 @@ export default class User {
    * @param id - ID value. This must be a natural number
    * @param name - Name value. This must be 1 to 128 characters
    *
-   * @throws {@link RangeError}
+   * @throws {@link TypeError}
    */
   constructor(id: number, name: string) {
     this.id = new UserId(id);

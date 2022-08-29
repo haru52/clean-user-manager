@@ -1,14 +1,18 @@
 import ConsoleView from '../../../external/views/console-view';
-import UserCreatePresenter from '../../../adapters/presenters/user/user-create-presenter';
 import SQLiteUserRepository from '../../../external/db/sqlite-user-repository';
 import { UserCreateInputData } from './user-create-input-data';
 import UserCreateInteractor from './user-create-interactor';
+import { UserCreateOutputBoundary } from './user-create-output-boundary';
 import { UserCreateOutputData } from './user-create-output-data';
+import UserCreatePresenter from '../../../adapters/presenters/user/user-create-presenter';
+import { UserRepository } from '../../../adapters/repositories/user-repository';
 
 describe('#handle({ name: "John Doe" })', () => {
-  const repository = new SQLiteUserRepository(true);
-  const presenter = new UserCreatePresenter(new ConsoleView());
-  const interactor = new UserCreateInteractor(repository, presenter);
+  const repository: UserRepository = new SQLiteUserRepository(true);
+  const outputBoundary: UserCreateOutputBoundary = new UserCreatePresenter(
+    new ConsoleView()
+  );
+  const interactor = new UserCreateInteractor(repository, outputBoundary);
   const name = 'John Doe';
   const inputData: UserCreateInputData = { name };
 
@@ -26,17 +30,17 @@ describe('#handle({ name: "John Doe" })', () => {
     expect(saveSpy).toHaveBeenCalledWith(name);
   });
 
-  const presentSpy = jest.spyOn(presenter, 'present');
+  const handleSpy = jest.spyOn(outputBoundary, 'handle');
 
-  test('consoleUserCreatePresenter.present has been called once', () => {
-    expect(presentSpy).toBeCalledTimes(1);
+  test('userCreateOutputBoundary.handle has been called once', () => {
+    expect(handleSpy).toBeCalledTimes(1);
   });
 
-  test('consoleUserCreatePresenter.present has been called with { id: 1, name: "John Doe" }', () => {
+  test('userCreateOutputBoundary.handle has been called with { id: 1, name: "John Doe" }', () => {
     const outputData: UserCreateOutputData = {
       id: 1,
       name,
     };
-    expect(presentSpy).toHaveBeenCalledWith(outputData);
+    expect(handleSpy).toHaveBeenCalledWith(outputData);
   });
 });

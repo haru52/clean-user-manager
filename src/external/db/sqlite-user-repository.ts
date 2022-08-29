@@ -42,11 +42,16 @@ export default class SQLiteUserRepository implements UserRepository {
             }
             if (rows.length === 0) {
               reject(
-                new NotFoundError(`Not found a user which name is "${name}"`)
+                new NotFoundError(`Not found a user which name is “${name}”`)
               );
               return;
             }
-            resolve(new User(rows[0].id, name));
+            try {
+              const user = new User(rows[0].id, name);
+              resolve(user);
+            } catch (e: unknown) {
+              reject(e);
+            }
           }
         );
       });
@@ -70,8 +75,13 @@ export default class SQLiteUserRepository implements UserRepository {
             reject(new NotFoundError(`Not found a user with ID ${id}`));
             return;
           }
-          const user = rows[0];
-          resolve(new User(user.id, user.name));
+          const userData = rows[0];
+          try {
+            const user = new User(userData.id, userData.name);
+            resolve(user);
+          } catch (e: unknown) {
+            reject(e);
+          }
         }
       );
     });

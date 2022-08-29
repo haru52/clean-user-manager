@@ -28,11 +28,11 @@ describe('#find', () => {
 });
 
 describe('#close', () => {
-  test("hasn't been rejected", () => {
+  test("hasn't thrown an error", () => {
     expect(() => sqliteUserRepository.close()).not.toThrow();
   });
 
-  test('save throws an error after the DB is closed', async () => {
+  test('save() has been rejected after the DB is closed', async () => {
     await expect(() =>
       sqliteUserRepository.save('Alice Smith')
     ).rejects.toThrow();

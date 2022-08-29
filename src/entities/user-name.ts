@@ -10,19 +10,29 @@ export default class UserName {
    *
    * @param value - Name value. This must be 1 to 128 characters
    *
-   * @throws {@link RangeError}
+   * @throws {@link TypeError}
+   * This exception is thrown if the input isn't valid.
    */
   constructor(value: string) {
-    if (!UserName.#validate(value))
-      throw new RangeError('value length must be between 1 and 128');
+    UserName.validate(value);
 
     this.value = value;
   }
 
-  static #validate(value: string) {
-    return (
-      value.length >= UserName.#minNameLength &&
-      value.length <= UserName.#maxNameLength
-    );
+  /**
+   * Validate a value of UserName.
+   *
+   * @param value - Name value. This must be 1 to 128 characters
+   *
+   * @throws {@link TypeError}
+   * This exception is thrown if the input isn't valid.
+   */
+  static validate(value: string) {
+    if (
+      value.length < UserName.#minNameLength ||
+      value.length > UserName.#maxNameLength
+    ) {
+      throw new TypeError('User name must be 1 to 128 characters');
+    }
   }
 }

@@ -4,13 +4,13 @@ import { View } from '../../view';
 import { ViewModel } from '../../view-model';
 
 export default class UserCreatePresenter implements UserCreateOutputBoundary {
-  readonly #view: View;
+  readonly #view;
 
   constructor(view: View) {
     this.#view = view;
   }
 
-  present(outputData: UserCreateOutputData) {
+  handle(outputData: UserCreateOutputData) {
     const message =
       outputData.err === undefined
         ? `User “${outputData.name}” has been created with ID ${outputData.id} successfully!`
