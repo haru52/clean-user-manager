@@ -1,4 +1,6 @@
-# Clean User Manager
+<!-- vale Microsoft.HeadingColons = NO -->
+# Clean User Manager: usermgr
+<!-- vale Microsoft.HeadingColons = YES -->
 
 [![Test](https://github.com/haru52/clean-user-manager/actions/workflows/test.yml/badge.svg)](https://github.com/haru52/clean-user-manager/actions/workflows/test.yml)
 [![Release](https://github.com/haru52/clean-user-manager/actions/workflows/release.yml/badge.svg)](https://github.com/haru52/clean-user-manager/actions/workflows/release.yml)

@@ -8,4 +8,5 @@ MIT
 npm
 nrslib
 repo
+usermgr
 yamllint
