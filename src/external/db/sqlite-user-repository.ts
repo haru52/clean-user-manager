@@ -5,14 +5,14 @@ import NotFoundError from './not-found-error';
 import User from '../../entities/user';
 import { UserRepository } from '../../adapters/repositories/user-repository';
 
-export default class SQLiteUserRepository implements UserRepository {
+export default class SqliteUserRepository implements UserRepository {
   readonly #db;
 
   static readonly #defaultDbPath = path.resolve(process.cwd(), 'user_mgr.db');
 
   constructor(
     useInMemory = false,
-    dbPath = SQLiteUserRepository.#defaultDbPath
+    dbPath = SqliteUserRepository.#defaultDbPath
   ) {
     const sqlite3Client = sqlite3.verbose();
     const db = useInMemory ? ':memory:' : dbPath;

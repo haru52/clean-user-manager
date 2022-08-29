@@ -1,5 +1,5 @@
 import ConsoleView from '../../../external/views/console-view';
-import SQLiteUserRepository from '../../../external/db/sqlite-user-repository';
+import SqliteUserRepository from '../../../external/db/sqlite-user-repository';
 import { UserCreateInputData } from './user-create-input-data';
 import UserCreateInteractor from './user-create-interactor';
 import { UserCreateOutputBoundary } from './user-create-output-boundary';
@@ -8,7 +8,7 @@ import UserCreatePresenter from '../../../adapters/presenters/user/user-create-p
 import { UserRepository } from '../../../adapters/repositories/user-repository';
 
 describe('#handle({ name: "John Doe" })', () => {
-  const repository: UserRepository = new SQLiteUserRepository(true);
+  const repository: UserRepository = new SqliteUserRepository(true);
   const outputBoundary: UserCreateOutputBoundary = new UserCreatePresenter(
     new ConsoleView()
   );

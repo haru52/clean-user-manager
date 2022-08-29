@@ -1,8 +1,8 @@
 import NotFoundError from './not-found-error';
-import SQLiteUserRepository from './sqlite-user-repository';
+import SqliteUserRepository from './sqlite-user-repository';
 import User from '../../entities/user';
 
-const sqliteUserRepository = new SQLiteUserRepository(true);
+const sqliteUserRepository = new SqliteUserRepository(true);
 const id = 1;
 const name = 'John Doe';
 const johnDoe = new User(id, name);

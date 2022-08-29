@@ -1,7 +1,7 @@
 import ConsoleUi from './external/ui/console-ui';
 import ConsoleView from './external/views/console-view';
 import { PackageData } from './external/ui/package-data';
-import SQLiteUserRepository from './external/db/sqlite-user-repository';
+import SqliteUserRepository from './external/db/sqlite-user-repository';
 import UserController from './adapters/controllers/user-controller';
 import { UserCreateInputBoundary } from './use-cases/user/create/user-create-input-boundary';
 import UserCreateInteractor from './use-cases/user/create/user-create-interactor';
@@ -11,7 +11,7 @@ import { UserRepository } from './adapters/repositories/user-repository';
 const packageData: PackageData = require('../package.json');
 
 export default class DiManager {
-  readonly userRepository: UserRepository = new SQLiteUserRepository();
+  readonly userRepository: UserRepository = new SqliteUserRepository();
 
   readonly consoleUi;
 

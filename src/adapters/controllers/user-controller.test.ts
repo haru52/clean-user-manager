@@ -1,5 +1,5 @@
 import ConsoleView from '../../external/views/console-view';
-import SQLiteUserRepository from '../../external/db/sqlite-user-repository';
+import SqliteUserRepository from '../../external/db/sqlite-user-repository';
 import UserController from './user-controller';
 import { UserCreateInputBoundary } from '../../use-cases/user/create/user-create-input-boundary';
 import { UserCreateInputData } from '../../use-cases/user/create/user-create-input-data';
@@ -8,7 +8,7 @@ import UserCreatePresenter from '../presenters/user/user-create-presenter';
 
 describe('#create("John Doe")', () => {
   const createInputBoundary: UserCreateInputBoundary = new UserCreateInteractor(
-    new SQLiteUserRepository(true),
+    new SqliteUserRepository(true),
     new UserCreatePresenter(new ConsoleView())
   );
   const controller = new UserController(createInputBoundary);
