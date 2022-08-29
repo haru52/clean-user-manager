@@ -1,11 +1,11 @@
 import ConsoleView from '../../../external/views/console-view';
-import SqliteUserRepository from '../../../external/db/sqlite-user-repository';
+import SqliteUserRepository from '../../../adapters/repositories/sqlite-user-repository';
 import { UserRegisterInputData } from './user-register-input-data';
 import UserRegisterInteractor from './user-register-interactor';
 import { UserRegisterOutputBoundary } from './user-register-output-boundary';
 import { UserRegisterOutputData } from './user-register-output-data';
 import UserRegisterPresenter from '../../../adapters/presenters/user/user-register-presenter';
-import { UserRepository } from '../../../adapters/repositories/user-repository';
+import { UserRepository } from '../user-repository';
 
 describe('#handle({ name: "John Doe" })', () => {
   const repository: UserRepository = new SqliteUserRepository(true);

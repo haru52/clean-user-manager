@@ -3,7 +3,7 @@ import process from 'process';
 import sqlite3 from 'sqlite3';
 import NotFoundError from './not-found-error';
 import User from '../../entities/user';
-import { UserRepository } from '../../adapters/repositories/user-repository';
+import { UserRepository } from '../../use-cases/user/user-repository';
 
 export default class SqliteUserRepository implements UserRepository {
   readonly #db;

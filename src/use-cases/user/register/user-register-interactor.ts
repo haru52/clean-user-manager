@@ -5,7 +5,7 @@ import { UserRegisterInputBoundary } from './user-register-input-boundary';
 import { UserRegisterInputData } from './user-register-input-data';
 import { UserRegisterOutputBoundary } from './user-register-output-boundary';
 import { UserRegisterOutputData } from './user-register-output-data';
-import { UserRepository } from '../../../adapters/repositories/user-repository';
+import { UserRepository } from '../user-repository';
 
 export default class UserRegisterInteractor
   implements UserRegisterInputBoundary

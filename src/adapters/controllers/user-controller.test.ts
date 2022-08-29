@@ -1,5 +1,5 @@
 import ConsoleView from '../../external/views/console-view';
-import SqliteUserRepository from '../../external/db/sqlite-user-repository';
+import SqliteUserRepository from '../repositories/sqlite-user-repository';
 import UserController from './user-controller';
 import { UserRegisterInputBoundary } from '../../use-cases/user/register/user-register-input-boundary';
 import { UserRegisterInputData } from '../../use-cases/user/register/user-register-input-data';
