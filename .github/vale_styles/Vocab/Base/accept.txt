@@ -1,5 +1,5 @@
 actionlint
-Clean Architecture Example
+Clean User Manager
 Contributing Guideline
 conventionalcommits
 gibo

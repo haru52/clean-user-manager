@@ -1,14 +1,14 @@
-# Clean Architecture Example
+# Clean User Manager
 
-[![Test](https://github.com/haru52/clean_architecture_example/actions/workflows/test.yml/badge.svg)](https://github.com/haru52/clean_architecture_example/actions/workflows/test.yml)
-[![Release](https://github.com/haru52/clean_architecture_example/actions/workflows/release.yml/badge.svg)](https://github.com/haru52/clean_architecture_example/actions/workflows/release.yml)
+[![Test](https://github.com/haru52/clean-user-manager/actions/workflows/test.yml/badge.svg)](https://github.com/haru52/clean-user-manager/actions/workflows/test.yml)
+[![Release](https://github.com/haru52/clean-user-manager/actions/workflows/release.yml/badge.svg)](https://github.com/haru52/clean-user-manager/actions/workflows/release.yml)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](https://commitizen.github.io/cz-cli/)
 [![semantic-release: conventionalcommits](https://img.shields.io/badge/semantic--release-conventionalcommits-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 
 ## Overview
 
-User management system. This is an example TypeScript project of [Clean Architecture](https://asciidwango.jp/post/176293765750/clean-architecture).
+User management system. This is an example TypeScript project of [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html).
 
 ## Requirements
 
@@ -38,6 +38,8 @@ Commands:
   help [command]   display help for command
 ```
 
+`user-mgr` command generates or updates `user_mgr.db` file in the directory where you run this command. This is an SQLite DB file. If you want to clean this DB, please delete this DB file. (Run `$ rm user_mgr.db`)
+
 ## Update
 
 ```sh
@@ -64,6 +66,7 @@ npm r -g @haru52/user-mgr
 
 ## References
 
+- [Clean Coder Blog](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 - [Clean Architecture - アスキードワンゴ](https://asciidwango.jp/post/176293765750/clean-architecture)
 - [実践クリーンアーキテクチャ │ nrslib](https://nrslib.com/clean-architecture/)
 - [Javaでクリーンアーキテクチャする方法　Part.1:ヘキサゴナルアーキテクチャ - ログミーTech](https://logmi.jp/tech/articles/323233)
