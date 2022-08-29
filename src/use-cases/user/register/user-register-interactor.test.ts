@@ -32,11 +32,11 @@ describe('#handle({ name: "John Doe" })', () => {
 
   const handleSpy = jest.spyOn(outputBoundary, 'handle');
 
-  test('userCreateOutputBoundary.handle has been called once', () => {
+  test('userRegisterOutputBoundary.handle has been called once', () => {
     expect(handleSpy).toBeCalledTimes(1);
   });
 
-  test('userCreateOutputBoundary.handle has been called with { id: 1, name: "John Doe" }', () => {
+  test('userRegisterOutputBoundary.handle has been called with { id: 1, name: "John Doe" }', () => {
     const outputData: UserRegisterOutputData = {
       id: 1,
       name,

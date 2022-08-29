@@ -16,12 +16,12 @@ export default class DiManager {
   readonly consoleUi;
 
   constructor() {
-    const userCreateInputBoundary: UserRegisterInputBoundary =
+    const userRegisterInputBoundary: UserRegisterInputBoundary =
       new UserRegisterInteractor(
         this.userRepository,
         new UserRegisterPresenter(new ConsoleView())
       );
-    const userController = new UserController(userCreateInputBoundary);
+    const userController = new UserController(userRegisterInputBoundary);
     this.consoleUi = new ConsoleUi(packageData, userController);
   }
 }

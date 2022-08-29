@@ -15,7 +15,7 @@ export default class UserRegisterPresenter
   handle(outputData: UserRegisterOutputData) {
     const message =
       outputData.err === undefined
-        ? `User “${outputData.name}” has been created with ID ${outputData.id} successfully!`
+        ? `User “${outputData.name}” has been registered with ID ${outputData.id} successfully!`
         : outputData.err.message;
     const viewModel: ViewModel = { message };
     this.#view.print(viewModel);

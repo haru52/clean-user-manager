@@ -54,7 +54,7 @@ export default class UserRegisterInteractor
     e: E
   ) {
     return new RegistrationError(
-      `Failed to create the user “${inputData.name}”.\n${e.name}: ${e.message}`
+      `Failed to register the user “${inputData.name}”.\n${e.name}: ${e.message}`
     );
   }
 }
