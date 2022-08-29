@@ -9,6 +9,6 @@
 /.github/vale_styles/write-good/
 
 # Others
-user_mgr.db
+usermgr.db
 
 

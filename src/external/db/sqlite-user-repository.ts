@@ -8,7 +8,7 @@ import { UserRepository } from '../../adapters/repositories/user-repository';
 export default class SqliteUserRepository implements UserRepository {
   readonly #db;
 
-  static readonly #defaultDbPath = path.resolve(process.cwd(), 'user_mgr.db');
+  static readonly #defaultDbPath = path.resolve(process.cwd(), 'usermgr.db');
 
   constructor(
     useInMemory = false,

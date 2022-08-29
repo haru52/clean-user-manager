@@ -19,13 +19,13 @@ User management system. This is an example TypeScript project of [Clean Architec
 ## Installation
 
 ```sh
-npm i -g @haru52/user-mgr
+npm i -g @haru52/usermgr
 ```
 
 ## Usage
 
 ```console
-Usage: user-mgr [options] [command]
+Usage: usermgr [options] [command]
 
 User management system. This is an example TypeScript project of Clean Architecture.
 
@@ -38,18 +38,18 @@ Commands:
   help [command]   display help for command
 ```
 
-`user-mgr` command generates or updates `user_mgr.db` file in the directory where you run this command. This is an SQLite DB file. If you want to clean this DB, please delete this DB file. (Run `$ rm user_mgr.db`)
+`usermgr` command generates or updates `usermgr.db` file in the directory where you run this command. This is an SQLite DB file. If you want to clean this DB, please delete this DB file. (Run `$ rm usermgr.db`)
 
 ## Update
 
 ```sh
-npm i -g @haru52/user-mgr
+npm i -g @haru52/usermgr
 ```
 
 ## Uninstall
 
 ```sh
-npm r -g @haru52/user-mgr
+npm r -g @haru52/usermgr
 ```
 
 ## Versioning policy

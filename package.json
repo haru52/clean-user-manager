@@ -1,5 +1,5 @@
 {
-  "name": "@haru52/user-mgr",
+  "name": "@haru52/usermgr",
   "version": "0.1.0",
   "description": "User management system. This is an example TypeScript project of Clean Architecture.",
   "publishConfig": {
@@ -17,7 +17,7 @@
   "scripts": {
     "clean": "run-s --continue-on-error clean:*",
     "clean:dist": "rm -rf dist",
-    "clean:db": "rm -f user_mgr.db",
+    "clean:db": "rm -f usermgr.db",
     "lint": "run-s --continue-on-error lint:*",
     "lint:credentials": "[ \"$CI\" = 'true' ] || secretlint \"**/*\"",
     "lint:md": "markdownlint . \".?*/**/*.{md,markdown}\"",
