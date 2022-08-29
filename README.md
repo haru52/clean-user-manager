@@ -8,7 +8,7 @@
 
 ## Overview
 
-User management system. This is an example TypeScript project of [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html).
+CLI of a user management system. This is an example TypeScript project of [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html).
 
 ## Requirements
 
@@ -27,7 +27,7 @@ npm i -g @haru52/usermgr
 ```console
 Usage: usermgr [options] [command]
 
-User management system. This is an example TypeScript project of Clean Architecture.
+CLI of a user management system. This is an example TypeScript project of Clean Architecture.
 
 Options:
   -V, --version    output the version number
