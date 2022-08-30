@@ -1,5 +1,5 @@
 import { UserRegisterInputData } from './user-register-input-data';
 
-export interface UserRegisterInputBoundary {
+export interface UserRegisterInputPort {
   handle(inputData: UserRegisterInputData): Promise<void>;
 }

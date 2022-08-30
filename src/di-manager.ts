@@ -3,7 +3,7 @@ import ConsoleView from './external/views/console-view';
 import { PackageData } from './external/ui/package-data';
 import SqliteUserRepository from './adapters/repositories/sqlite-user-repository';
 import UserController from './adapters/controllers/user-controller';
-import { UserRegisterInputBoundary } from './use-cases/user/register/user-register-input-boundary';
+import { UserRegisterInputPort } from './use-cases/user/register/user-register-input-port';
 import UserRegisterInteractor from './use-cases/user/register/user-register-interactor';
 import UserRegisterPresenter from './adapters/presenters/user/user-register-presenter';
 import { UserRepository } from './use-cases/user/user-repository';
@@ -16,12 +16,12 @@ export default class DiManager {
   readonly consoleUi;
 
   constructor() {
-    const userRegisterInputBoundary: UserRegisterInputBoundary =
+    const userRegisterInputPort: UserRegisterInputPort =
       new UserRegisterInteractor(
         this.userRepository,
         new UserRegisterPresenter(new ConsoleView())
       );
-    const userController = new UserController(userRegisterInputBoundary);
+    const userController = new UserController(userRegisterInputPort);
     this.consoleUi = new ConsoleUi(packageData, userController);
   }
 }

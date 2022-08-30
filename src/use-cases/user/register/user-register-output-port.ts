@@ -1,5 +1,5 @@
 import { UserRegisterOutputData } from './user-register-output-data';
 
-export interface UserRegisterOutputBoundary {
+export interface UserRegisterOutputPort {
   handle(outputData: UserRegisterOutputData): void;
 }

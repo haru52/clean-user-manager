@@ -1,11 +1,9 @@
-import { UserRegisterOutputBoundary } from '../../../use-cases/user/register/user-register-output-boundary';
 import { UserRegisterOutputData } from '../../../use-cases/user/register/user-register-output-data';
+import { UserRegisterOutputPort } from '../../../use-cases/user/register/user-register-output-port';
 import { View } from '../../view';
 import { ViewModel } from '../../view-model';
 
-export default class UserRegisterPresenter
-  implements UserRegisterOutputBoundary
-{
+export default class UserRegisterPresenter implements UserRegisterOutputPort {
   readonly #view;
 
   constructor(view: View) {

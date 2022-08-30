@@ -1,25 +1,20 @@
 import RegistrationError from '../../registration-error';
 import User from '../../../entities/user';
 import UserName from '../../../entities/user-name';
-import { UserRegisterInputBoundary } from './user-register-input-boundary';
 import { UserRegisterInputData } from './user-register-input-data';
-import { UserRegisterOutputBoundary } from './user-register-output-boundary';
+import { UserRegisterInputPort } from './user-register-input-port';
 import { UserRegisterOutputData } from './user-register-output-data';
+import { UserRegisterOutputPort } from './user-register-output-port';
 import { UserRepository } from '../user-repository';
 
-export default class UserRegisterInteractor
-  implements UserRegisterInputBoundary
-{
+export default class UserRegisterInteractor implements UserRegisterInputPort {
   readonly #repository;
 
-  readonly #outputBoundary;
+  readonly #outputPort;
 
-  constructor(
-    repository: UserRepository,
-    outputBoundary: UserRegisterOutputBoundary
-  ) {
+  constructor(repository: UserRepository, outputPort: UserRegisterOutputPort) {
     this.#repository = repository;
-    this.#outputBoundary = outputBoundary;
+    this.#outputPort = outputPort;
   }
 
   async handle(inputData: UserRegisterInputData) {
@@ -46,7 +41,7 @@ export default class UserRegisterInteractor
       name: user?.name.value,
       err,
     };
-    this.#outputBoundary.handle(outputData);
+    this.#outputPort.handle(outputData);
   }
 
   static #createCreationError<E extends Error>(
