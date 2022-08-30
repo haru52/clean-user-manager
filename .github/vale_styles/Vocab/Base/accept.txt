@@ -1,12 +1,13 @@
 actionlint
 Clean User Manager
+Commitizen
 Contributing Guideline
 conventionalcommits
 gibo
 haru
-MIT
 npm
 nrslib
 repo
 usermgr
+WTFPL
 yamllint

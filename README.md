@@ -60,7 +60,7 @@ npm r -g @haru52/usermgr
 
 ## License
 
-[MIT](LICENSE)
+[WTFPL](LICENSE)
 
 ## Contributing
 
