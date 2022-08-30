@@ -1,6 +1,6 @@
 {
   "name": "@haru52/usermgr",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "CLI of a user management system. This is an example TypeScript project of Clean Architecture.",
   "publishConfig": {
     "access": "public"
