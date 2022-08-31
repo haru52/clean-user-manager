@@ -8,6 +8,14 @@ const packageData = require('../package.json');
 
 export default class DependencyInjector {
   static run() {
+    DependencyInjector.#registerDependencies();
+  }
+
+  static runForTest() {
+    DependencyInjector.#registerDependencies(true);
+  }
+
+  static #registerDependencies(isTest = false) {
     // Common
     container.register('PackageData', {
       useValue: packageData,
@@ -17,8 +25,11 @@ export default class DependencyInjector {
     });
 
     // User
+    const sqliteUserRepository = isTest
+      ? new SqliteUserRepository(true)
+      : new SqliteUserRepository();
     container.register('UserRepository', {
-      useValue: new SqliteUserRepository(),
+      useValue: sqliteUserRepository,
     });
 
     // Register
