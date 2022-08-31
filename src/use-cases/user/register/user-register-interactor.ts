@@ -1,5 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 import RegistrationError from '../../registration-error';
+import TYPES from '../../../types';
 import User from '../../../entities/user';
 import UserName from '../../../entities/user-name';
 import { UserRegisterInputData } from './user-register-input-data';
@@ -15,8 +16,8 @@ export default class UserRegisterInteractor implements UserRegisterInputPort {
   readonly #outputPort;
 
   constructor(
-    @inject('UserRepository') repository: UserRepository,
-    @inject('UserRegisterOutputPort') outputPort: UserRegisterOutputPort
+    @inject(TYPES.UserRepository) repository: UserRepository,
+    @inject(TYPES.UserRegisterOutputPort) outputPort: UserRegisterOutputPort
   ) {
     this.#repository = repository;
     this.#outputPort = outputPort;

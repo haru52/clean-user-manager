@@ -1,6 +1,7 @@
 import 'reflect-metadata';
 import { container } from 'tsyringe';
 import DependencyInjectorForTest from '../../../dependency-injector-for-test';
+import TYPES from '../../../types';
 import { UserRegisterInputData } from './user-register-input-data';
 import UserRegisterInteractor from './user-register-interactor';
 import { UserRegisterOutputData } from './user-register-output-data';
@@ -10,9 +11,9 @@ import { UserRepository } from '../user-repository';
 DependencyInjectorForTest.run();
 
 describe('#handle({ name: "John Doe" })', () => {
-  const repository = container.resolve<UserRepository>('UserRepository');
+  const repository = container.resolve<UserRepository>(TYPES.UserRepository);
   const outputPort = container.resolve<UserRegisterOutputPort>(
-    'UserRegisterOutputPort'
+    TYPES.UserRegisterOutputPort
   );
   const interactor = new UserRegisterInteractor(repository, outputPort);
   const name = 'John Doe';
