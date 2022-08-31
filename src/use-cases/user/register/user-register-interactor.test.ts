@@ -1,13 +1,13 @@
 import 'reflect-metadata';
 import { container } from 'tsyringe';
-import DependencyInjector from '../../../dependency-injector';
+import DependencyInjectorForTest from '../../../dependency-injector-for-test';
 import { UserRegisterInputData } from './user-register-input-data';
 import UserRegisterInteractor from './user-register-interactor';
 import { UserRegisterOutputData } from './user-register-output-data';
 import { UserRegisterOutputPort } from './user-register-output-port';
 import { UserRepository } from '../user-repository';
 
-DependencyInjector.runForTest();
+DependencyInjectorForTest.run();
 
 describe('#handle({ name: "John Doe" })', () => {
   const repository = container.resolve<UserRepository>('UserRepository');

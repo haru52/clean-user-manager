@@ -1,12 +1,12 @@
 import 'reflect-metadata';
 import { container } from 'tsyringe';
-import DependencyInjector from '../../../dependency-injector';
+import DependencyInjectorForTest from '../../../dependency-injector-for-test';
 import { UserRegisterOutputData } from '../../../use-cases/user/register/user-register-output-data';
 import UserRegisterPresenter from './user-register-presenter';
 import { View } from '../../view';
 import { ViewModel } from '../../view-model';
 
-DependencyInjector.runForTest();
+DependencyInjectorForTest.run();
 
 describe('#handle', () => {
   const view = container.resolve<View>('View');
