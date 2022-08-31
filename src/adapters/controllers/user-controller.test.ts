@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import ConsoleView from '../../external/views/console-view';
 import SqliteUserRepository from '../repositories/sqlite-user-repository';
 import UserController from './user-controller';

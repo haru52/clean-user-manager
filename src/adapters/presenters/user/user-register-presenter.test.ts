@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import ConsoleView from '../../../external/views/console-view';
 import { UserRegisterOutputData } from '../../../use-cases/user/register/user-register-output-data';
 import UserRegisterPresenter from './user-register-presenter';

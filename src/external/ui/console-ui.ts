@@ -1,7 +1,9 @@
+import { inject, injectable } from 'tsyringe';
 import { Command } from 'commander';
 import { PackageData } from './package-data';
 import UserController from '../../adapters/controllers/user-controller';
 
+@injectable()
 export default class ConsoleUi {
   readonly #program = new Command();
 
@@ -9,7 +11,10 @@ export default class ConsoleUi {
 
   readonly #userController;
 
-  constructor(packageData: PackageData, userController: UserController) {
+  constructor(
+    @inject('PackageData') packageData: PackageData,
+    userController: UserController
+  ) {
     this.#packageData = packageData;
     this.#userController = userController;
   }

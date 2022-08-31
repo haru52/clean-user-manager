@@ -1,3 +1,4 @@
+import { inject, injectable } from 'tsyringe';
 import RegistrationError from '../../registration-error';
 import User from '../../../entities/user';
 import UserName from '../../../entities/user-name';
@@ -7,12 +8,16 @@ import { UserRegisterOutputData } from './user-register-output-data';
 import { UserRegisterOutputPort } from './user-register-output-port';
 import { UserRepository } from '../user-repository';
 
+@injectable()
 export default class UserRegisterInteractor implements UserRegisterInputPort {
   readonly #repository;
 
   readonly #outputPort;
 
-  constructor(repository: UserRepository, outputPort: UserRegisterOutputPort) {
+  constructor(
+    @inject('UserRepository') repository: UserRepository,
+    @inject('UserRegisterOutputPort') outputPort: UserRegisterOutputPort
+  ) {
     this.#repository = repository;
     this.#outputPort = outputPort;
   }
@@ -25,14 +30,14 @@ export default class UserRegisterInteractor implements UserRegisterInputPort {
       UserName.validate(inputData.name);
     } catch (e: unknown) {
       if (!(e instanceof Error)) throw e;
-      err = UserRegisterInteractor.#createCreationError(inputData, e);
+      err = UserRegisterInteractor.createCreationError(inputData, e);
     }
 
     if (err === undefined) {
       user = await this.#repository
         .save(inputData.name)
         .catch(<E extends Error>(e: E) => {
-          err = UserRegisterInteractor.#createCreationError(inputData, e);
+          err = UserRegisterInteractor.createCreationError(inputData, e);
         });
     }
 
@@ -44,7 +49,7 @@ export default class UserRegisterInteractor implements UserRegisterInputPort {
     this.#outputPort.handle(outputData);
   }
 
-  static #createCreationError<E extends Error>(
+  private static createCreationError<E extends Error>(
     inputData: UserRegisterInputData,
     e: E
   ) {

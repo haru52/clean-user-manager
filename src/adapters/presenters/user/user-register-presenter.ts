@@ -1,12 +1,14 @@
+import { inject, injectable } from 'tsyringe';
 import { UserRegisterOutputData } from '../../../use-cases/user/register/user-register-output-data';
 import { UserRegisterOutputPort } from '../../../use-cases/user/register/user-register-output-port';
 import { View } from '../../view';
 import { ViewModel } from '../../view-model';
 
+@injectable()
 export default class UserRegisterPresenter implements UserRegisterOutputPort {
   readonly #view;
 
-  constructor(view: View) {
+  constructor(@inject('View') view: View) {
     this.#view = view;
   }
 

@@ -1,11 +1,18 @@
 #!/usr/bin/env node
 
-import DiManager from './di-manager';
+import 'reflect-metadata';
+import { container } from 'tsyringe';
+import ConsoleUi from './external/ui/console-ui';
+import DependencyInjector from './dependency_injector';
+import { UserRepository } from './use-cases/user/user-repository';
 
 async function main() {
-  const { consoleUi, userRepository } = new DiManager();
+  DependencyInjector.run();
+
+  const consoleUi = container.resolve(ConsoleUi);
   await consoleUi.handle();
 
+  const userRepository = container.resolve<UserRepository>('UserRepository');
   userRepository.close();
 }
 

@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import ConsoleView from '../../../external/views/console-view';
 import SqliteUserRepository from '../../../adapters/repositories/sqlite-user-repository';
 import { UserRegisterInputData } from './user-register-input-data';
