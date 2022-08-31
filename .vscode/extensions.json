@@ -2,6 +2,7 @@
   "recommendations": [
     "christian-kohler.npm-intellisense",
     "DavidAnson.vscode-markdownlint",
+    "dbaeumer.vscode-eslint",
     "EditorConfig.EditorConfig",
     "errata-ai.vale-server",
     "esbenp.prettier-vscode",
