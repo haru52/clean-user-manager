@@ -1,17 +1,18 @@
 import 'reflect-metadata';
-import ConsoleView from '../../../external/views/console-view';
-import SqliteUserRepository from '../../../adapters/repositories/sqlite-user-repository';
+import { container } from 'tsyringe';
+import DependencyInjector from '../../../dependency_injector';
 import { UserRegisterInputData } from './user-register-input-data';
 import UserRegisterInteractor from './user-register-interactor';
 import { UserRegisterOutputData } from './user-register-output-data';
 import { UserRegisterOutputPort } from './user-register-output-port';
-import UserRegisterPresenter from '../../../adapters/presenters/user/user-register-presenter';
 import { UserRepository } from '../user-repository';
 
+DependencyInjector.runForTest();
+
 describe('#handle({ name: "John Doe" })', () => {
-  const repository: UserRepository = new SqliteUserRepository(true);
-  const outputPort: UserRegisterOutputPort = new UserRegisterPresenter(
-    new ConsoleView()
+  const repository = container.resolve<UserRepository>('UserRepository');
+  const outputPort = container.resolve<UserRegisterOutputPort>(
+    'UserRegisterOutputPort'
   );
   const interactor = new UserRegisterInteractor(repository, outputPort);
   const name = 'John Doe';

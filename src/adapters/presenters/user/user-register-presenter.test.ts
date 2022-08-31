@@ -1,12 +1,15 @@
 import 'reflect-metadata';
-import ConsoleView from '../../../external/views/console-view';
+import { container } from 'tsyringe';
+import DependencyInjector from '../../../dependency_injector';
 import { UserRegisterOutputData } from '../../../use-cases/user/register/user-register-output-data';
 import UserRegisterPresenter from './user-register-presenter';
 import { View } from '../../view';
 import { ViewModel } from '../../view-model';
 
+DependencyInjector.runForTest();
+
 describe('#handle', () => {
-  const view: View = new ConsoleView();
+  const view = container.resolve<View>('View');
   const presenter = new UserRegisterPresenter(view);
   const id = 1;
   const name = 'John Doe';

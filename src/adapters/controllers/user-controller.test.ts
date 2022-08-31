@@ -1,16 +1,15 @@
 import 'reflect-metadata';
-import ConsoleView from '../../external/views/console-view';
-import SqliteUserRepository from '../repositories/sqlite-user-repository';
+import { container } from 'tsyringe';
+import DependencyInjector from '../../dependency_injector';
 import UserController from './user-controller';
 import { UserRegisterInputData } from '../../use-cases/user/register/user-register-input-data';
 import { UserRegisterInputPort } from '../../use-cases/user/register/user-register-input-port';
-import UserRegisterInteractor from '../../use-cases/user/register/user-register-interactor';
-import UserRegisterPresenter from '../presenters/user/user-register-presenter';
+
+DependencyInjector.runForTest();
 
 describe('#register("John Doe")', () => {
-  const registerInputPort: UserRegisterInputPort = new UserRegisterInteractor(
-    new SqliteUserRepository(true),
-    new UserRegisterPresenter(new ConsoleView())
+  const registerInputPort = container.resolve<UserRegisterInputPort>(
+    'UserRegisterInputPort'
   );
   const controller = new UserController(registerInputPort);
   const name = 'John Doe';
