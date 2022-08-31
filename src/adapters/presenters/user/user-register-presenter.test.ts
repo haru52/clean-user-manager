@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { container } from 'tsyringe';
-import DependencyInjector from '../../../dependency_injector';
+import DependencyInjector from '../../../dependency-injector';
 import { UserRegisterOutputData } from '../../../use-cases/user/register/user-register-output-data';
 import UserRegisterPresenter from './user-register-presenter';
 import { View } from '../../view';
