@@ -1,16 +1,16 @@
 import { container } from 'tsyringe';
 import DependencyInjectorBase from './dependency-injector-base';
-import SqliteUserRepository from './adapters/repositories/sqlite-user-repository';
+import SqliteUserRepository from '../adapters/repositories/sqlite-user-repository';
 import TYPES from './types';
 
-export default class DependencyInjector {
+export default class DependencyInjectorForTest {
   static run() {
     // Base
     DependencyInjectorBase.run();
 
     // User
     container.register(TYPES.UserRepository, {
-      useValue: new SqliteUserRepository(),
+      useValue: new SqliteUserRepository(true),
     });
   }
 }

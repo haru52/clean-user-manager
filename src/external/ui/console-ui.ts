@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 import { Command } from 'commander';
 import { PackageData } from './package-data';
-import TYPES from '../../types';
+import TYPES from '../../di/types';
 import UserController from '../../adapters/controllers/user-controller';
 
 @injectable()

@@ -1,5 +1,5 @@
 import { inject, injectable } from 'tsyringe';
-import TYPES from '../../types';
+import TYPES from '../../di/types';
 import { UserRegisterInputData } from '../../use-cases/user/register/user-register-input-data';
 import { UserRegisterInputPort } from '../../use-cases/user/register/user-register-input-port';
 

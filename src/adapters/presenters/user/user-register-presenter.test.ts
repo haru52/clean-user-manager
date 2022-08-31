@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import { container } from 'tsyringe';
-import DependencyInjectorForTest from '../../../dependency-injector-for-test';
-import TYPES from '../../../types';
+import DependencyInjectorForTest from '../../../di/dependency-injector-for-test';
+import TYPES from '../../../di/types';
 import { UserRegisterOutputData } from '../../../use-cases/user/register/user-register-output-data';
 import UserRegisterPresenter from './user-register-presenter';
 import { View } from '../../view';
