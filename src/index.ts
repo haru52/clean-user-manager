@@ -10,10 +10,15 @@ async function main() {
   DependencyInjector.run();
 
   const consoleUi = container.resolve(ConsoleUi);
-  await consoleUi.handle();
+  let isError = false;
+  await consoleUi.handle().catch(() => {
+    isError = true;
+  });
 
   const dbConnector = container.resolve(SqliteDbConnector);
   dbConnector.close();
+
+  if (isError) process.exit(1);
 }
 
 main();

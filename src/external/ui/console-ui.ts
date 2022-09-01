@@ -28,13 +28,17 @@ export default class ConsoleUi {
       .description(this.#packageData.description)
       .version(this.#packageData.version);
 
-    return new Promise<void>((resolve) => {
+    return new Promise<void>((resolve, reject) => {
       this.#program
         .command('register')
         .description('register a new user')
         .argument('<name>', 'user name')
         .action(async (name) => {
-          await this.#userController.register(name);
+          await this.#userController
+            .register(name)
+            .catch(<E extends Error>(e: E) => {
+              reject(e);
+            });
           resolve();
         });
 

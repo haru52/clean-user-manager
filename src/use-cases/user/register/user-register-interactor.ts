@@ -31,14 +31,14 @@ export default class UserRegisterInteractor implements UserRegisterInputPort {
       UserName.validate(inputData.name);
     } catch (e: unknown) {
       if (!(e instanceof Error)) throw e;
-      err = UserRegisterInteractor.createCreationError(inputData, e);
+      err = UserRegisterInteractor.createRegistrationError(inputData, e);
     }
 
     if (err === undefined) {
       user = await this.#repository
         .save(inputData.name)
         .catch(<E extends Error>(e: E) => {
-          err = UserRegisterInteractor.createCreationError(inputData, e);
+          err = UserRegisterInteractor.createRegistrationError(inputData, e);
         });
     }
 
@@ -48,9 +48,11 @@ export default class UserRegisterInteractor implements UserRegisterInputPort {
       err,
     };
     this.#outputPort.handle(outputData);
+
+    if (err !== undefined) throw err;
   }
 
-  private static createCreationError<E extends Error>(
+  private static createRegistrationError<E extends Error>(
     inputData: UserRegisterInputData,
     e: E
   ) {
