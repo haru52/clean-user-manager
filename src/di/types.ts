@@ -1,6 +1,7 @@
 const TYPES = {
   // Common
   PackageData: Symbol.for('PackageData'),
+  Sqlite3Database: Symbol.for('Sqlite3Database'),
   View: Symbol.for('View'),
 
   // User

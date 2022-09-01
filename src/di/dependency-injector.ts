@@ -1,6 +1,6 @@
 import { container } from 'tsyringe';
 import DependencyInjectorBase from './dependency-injector-base';
-import SqliteUserRepository from '../adapters/repositories/sqlite-user-repository';
+import SqliteDbConnector from '../adapters/repositories/sqlite-db-connector';
 import TYPES from './types';
 
 export default class DependencyInjector {
@@ -8,9 +8,10 @@ export default class DependencyInjector {
     // Base
     DependencyInjectorBase.run();
 
-    // User
-    container.register(TYPES.UserRepository, {
-      useValue: new SqliteUserRepository(),
+    // Common
+    const sqliteDbConnector = new SqliteDbConnector();
+    container.register(TYPES.Sqlite3Database, {
+      useValue: sqliteDbConnector.db,
     });
   }
 }

@@ -1,8 +1,16 @@
+import 'reflect-metadata';
+import { container } from 'tsyringe';
+import sqlite3 from 'sqlite3';
+import DependencyInjectorForTest from '../../di/dependency-injector-for-test';
 import NotFoundError from './not-found-error';
 import SqliteUserRepository from './sqlite-user-repository';
+import TYPES from '../../di/types';
 import User from '../../entities/user';
 
-const sqliteUserRepository = new SqliteUserRepository(true);
+DependencyInjectorForTest.run();
+
+const db = container.resolve<sqlite3.Database>(TYPES.Sqlite3Database);
+const sqliteUserRepository = new SqliteUserRepository(db);
 const id = 1;
 const name = 'John Doe';
 const johnDoe = new User(id, name);

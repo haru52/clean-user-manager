@@ -1,28 +1,16 @@
-import fs from 'fs';
-import path from 'path';
-import process from 'process';
+import { inject, injectable } from 'tsyringe';
 import sqlite3 from 'sqlite3';
-import DbCreationError from './db-creation-error';
 import NotFoundError from './not-found-error';
+import TYPES from '../../di/types';
 import User from '../../entities/user';
 import { UserRepository } from '../../use-cases/user/user-repository';
 
+@injectable()
 export default class SqliteUserRepository implements UserRepository {
   readonly #db;
 
-  /**
-   * Initialize an SqliteUserRepository instance.
-   *
-   * @param useInMemory - Whether to use an in memory DB or a DB file
-   * @returns SqliteUserRepository instance
-   *
-   * @throws {@link DbCreationError}
-   * This exception is thrown if the home directory can't be found to create the DB file.
-   */
-  constructor(useInMemory = false) {
-    const sqlite3Client = sqlite3.verbose();
-    const dbPath = useInMemory ? ':memory:' : SqliteUserRepository.#getDbPath();
-    this.#db = new sqlite3Client.Database(dbPath);
+  constructor(@inject(TYPES.Sqlite3Database) db: sqlite3.Database) {
+    this.#db = db;
   }
 
   async save(name: string) {
@@ -129,27 +117,5 @@ export default class SqliteUserRepository implements UserRepository {
         }
       );
     });
-  }
-
-  /**
-   * Get the DB file path.
-   *
-   * @returns DB file path
-   *
-   * @throws {@link DbCreationError}
-   * This exception is thrown if the home directory can't be found to create the DB file.
-   */
-  static #getDbPath() {
-    const homeDirPath =
-      process.env[process.platform === 'win32' ? 'USERPROFILE' : 'HOME'];
-
-    if (homeDirPath === undefined)
-      throw new DbCreationError(
-        'Failed to create the DB file to the home directory'
-      );
-
-    const dbDirPath = path.resolve(homeDirPath, '.usermgr');
-    if (!fs.existsSync(dbDirPath)) fs.mkdirSync(dbDirPath);
-    return path.resolve(dbDirPath, 'usermgr.db');
   }
 }
