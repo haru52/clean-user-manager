@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import process from 'process';
 import sqlite3 from 'sqlite3';
-import DbConnectionError from './db-connection-error';
+import DbConnectionError from './errors/db-connection-error';
 
 export default class SqliteDbConnector {
   readonly db;

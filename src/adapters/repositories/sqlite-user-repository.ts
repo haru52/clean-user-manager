@@ -1,6 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 import sqlite3 from 'sqlite3';
-import NotFoundError from './not-found-error';
+import NotFoundError from './errors/not-found-error';
 import TYPES from '../../di/types';
 import User from '../../entities/user';
 import { UserRepository } from '../../use-cases/user/user-repository';
