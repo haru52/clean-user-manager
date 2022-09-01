@@ -1,7 +1,6 @@
-import { inject, injectable } from 'tsyringe';
-import sqlite3 from 'sqlite3';
+import { injectable } from 'tsyringe';
 import NotFoundError from './errors/not-found-error';
-import TYPES from '../../di/types';
+import SqliteDbConnector from './sqlite-db-connector';
 import User from '../../entities/user';
 import { UserRepository } from '../../use-cases/user/user-repository';
 
@@ -9,8 +8,8 @@ import { UserRepository } from '../../use-cases/user/user-repository';
 export default class SqliteUserRepository implements UserRepository {
   readonly #db;
 
-  constructor(@inject(TYPES.Sqlite3Database) db: sqlite3.Database) {
-    this.#db = db;
+  constructor(dbConnector: SqliteDbConnector) {
+    this.#db = dbConnector.db;
   }
 
   async save(name: string) {

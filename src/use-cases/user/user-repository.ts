@@ -27,5 +27,4 @@ export interface UserRepository {
    * This exception is thrown if the DB throws an unexpected error.
    */
   find(id: number): Promise<User>;
-  close(): void;
 }

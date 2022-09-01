@@ -4,8 +4,7 @@ import 'reflect-metadata';
 import { container } from 'tsyringe';
 import ConsoleUi from './external/ui/console-ui';
 import DependencyInjector from './di/dependency-injector';
-import TYPES from './di/types';
-import { UserRepository } from './use-cases/user/user-repository';
+import SqliteDbConnector from './adapters/repositories/sqlite-db-connector';
 
 async function main() {
   DependencyInjector.run();
@@ -13,10 +12,8 @@ async function main() {
   const consoleUi = container.resolve(ConsoleUi);
   await consoleUi.handle();
 
-  const userRepository = container.resolve<UserRepository>(
-    TYPES.UserRepository
-  );
-  userRepository.close();
+  const dbConnector = container.resolve(SqliteDbConnector);
+  dbConnector.close();
 }
 
 main();

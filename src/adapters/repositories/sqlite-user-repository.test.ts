@@ -1,16 +1,15 @@
 import 'reflect-metadata';
 import { container } from 'tsyringe';
-import sqlite3 from 'sqlite3';
 import DependencyInjectorForTest from '../../di/dependency-injector-for-test';
 import NotFoundError from './errors/not-found-error';
+import SqliteDbConnector from './sqlite-db-connector';
 import SqliteUserRepository from './sqlite-user-repository';
-import TYPES from '../../di/types';
 import User from '../../entities/user';
 
 DependencyInjectorForTest.run();
 
-const db = container.resolve<sqlite3.Database>(TYPES.Sqlite3Database);
-const sqliteUserRepository = new SqliteUserRepository(db);
+const dbConnector = container.resolve(SqliteDbConnector);
+const sqliteUserRepository = new SqliteUserRepository(dbConnector);
 const id = 1;
 const name = 'John Doe';
 const johnDoe = new User(id, name);
@@ -32,17 +31,5 @@ describe('#find', () => {
 
   test('find(2) has been rejected due to not found', async () => {
     await expect(sqliteUserRepository.find(2)).rejects.toThrow(NotFoundError);
-  });
-});
-
-describe('#close', () => {
-  test("hasn't thrown an error", () => {
-    expect(() => sqliteUserRepository.close()).not.toThrow();
-  });
-
-  test('save() has been rejected after the DB is closed', async () => {
-    await expect(() =>
-      sqliteUserRepository.save('Alice Smith')
-    ).rejects.toThrow();
   });
 });

@@ -1,6 +1,5 @@
 import { container } from 'tsyringe';
 import DependencyInjectorBase from './dependency-injector-base';
-import SqliteDbConnector from '../adapters/repositories/sqlite-db-connector';
 import TYPES from './types';
 
 export default class DependencyInjectorForTest {
@@ -9,9 +8,8 @@ export default class DependencyInjectorForTest {
     DependencyInjectorBase.run();
 
     // Common
-    const sqliteDbConnector = new SqliteDbConnector(true);
-    container.register(TYPES.Sqlite3Database, {
-      useValue: sqliteDbConnector.db,
+    container.register(TYPES.UseInMemory, {
+      useValue: true,
     });
   }
 }

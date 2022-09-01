@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import sqlite3 from 'sqlite3';
 import SqliteDbConnector from './sqlite-db-connector';
 
