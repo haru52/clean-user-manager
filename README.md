@@ -40,7 +40,9 @@ Commands:
   help [command]   display help for command
 ```
 
-`usermgr` command generates or updates `usermgr.db` file in the directory where you run this command. This is an SQLite DB file. If you want to clean this DB, please delete this DB file. (Run `$ rm usermgr.db`)
+<!-- vale Microsoft.Foreign = NO -->
+`usermgr` command generates or updates `.usermgr/usermgr.db` file in your home directory. This is an SQLite DB file. If you want to clean this DB, please delete this DB file (e.g., Run `$ rm "$HOME"/.usermgr/usermgr.db`).
+<!-- vale Microsoft.Foreign = YES -->
 
 ## Update
 
