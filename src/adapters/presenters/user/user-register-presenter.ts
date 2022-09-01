@@ -18,7 +18,10 @@ export default class UserRegisterPresenter implements UserRegisterOutputPort {
       outputData.err === undefined
         ? `User “${outputData.name}” has been registered with ID ${outputData.id} successfully!`
         : outputData.err.message;
-    const viewModel: ViewModel = { message };
+    const viewModel: ViewModel = {
+      message,
+      isErr: outputData.err !== undefined,
+    };
     this.#view.print(viewModel);
   }
 }

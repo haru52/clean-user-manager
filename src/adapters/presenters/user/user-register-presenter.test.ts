@@ -29,6 +29,7 @@ describe('#handle', () => {
   test('view.print() has been called with the viewModel', () => {
     const viewModel: ViewModel = {
       message: `User “${name}” has been registered with ID ${id} successfully!`,
+      isErr: false,
     };
     expect(printSpy).toHaveBeenCalledWith(viewModel);
   });
