@@ -1,3 +1,11 @@
+## [3.2.0](https://github.com/haru52/clean-user-manager/compare/v3.1.0...v3.2.0) (2022-09-01)
+
+
+### Features
+
+* update to exit with status code 1 when some error occurs ([9510564](https://github.com/haru52/clean-user-manager/commit/95105644cd312a5f24def917cab235f31ab29ff5))
+* update to output the message to stderr when the command fails ([3ebcb14](https://github.com/haru52/clean-user-manager/commit/3ebcb141b9f1fdb7df64edd40e843d35671bbbbc))
+
 ## [3.1.0](https://github.com/haru52/clean-user-manager/compare/v3.0.0...v3.1.0) (2022-09-01)
 
 
