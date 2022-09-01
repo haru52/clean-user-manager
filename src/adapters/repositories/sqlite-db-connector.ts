@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import process from 'process';
 import sqlite3 from 'sqlite3';
-import DbCreationError from './db-creation-error';
+import DbConnectionError from './db-connection-error';
 
 export default class SqliteDbConnector {
   readonly db;
@@ -13,8 +13,8 @@ export default class SqliteDbConnector {
    * @param useInMemory - Whether to use an in memory DB or a DB file
    * @returns SqliteDbConnector instance
    *
-   * @throws {@link DbCreationError}
-   * This exception is thrown if the home directory can't be found to create the DB file.
+   * @throws {@link DbConnectionError}
+   * This exception is thrown if the home directory can't be found where the DB file resides.
    */
   constructor(useInMemory = false) {
     const sqlite3Client = sqlite3.verbose();
@@ -27,16 +27,16 @@ export default class SqliteDbConnector {
    *
    * @returns DB file path
    *
-   * @throws {@link DbCreationError}
-   * This exception is thrown if the home directory can't be found to create the DB file.
+   * @throws {@link DbConnectionError}
+   * This exception is thrown if the home directory can't be found where the DB file resides.
    */
   static #getDbPath() {
     const homeDirPath =
       process.env[process.platform === 'win32' ? 'USERPROFILE' : 'HOME'];
 
     if (homeDirPath === undefined)
-      throw new DbCreationError(
-        'Failed to create the DB file to the home directory'
+      throw new DbConnectionError(
+        'Failed to connect to the DB file in the home directory'
       );
 
     const dbDirPath = path.resolve(homeDirPath, '.usermgr');
