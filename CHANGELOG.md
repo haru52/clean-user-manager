@@ -1,3 +1,14 @@
+## [3.0.0](https://github.com/haru52/clean-user-manager/compare/v2.0.0...v3.0.0) (2022-09-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* change DB file path from current directory to "$HOME"/.usermgr/
+
+### Features
+
+* change DB file path from current directory to "$HOME"/.usermgr/ ([ef7c7be](https://github.com/haru52/clean-user-manager/commit/ef7c7be444ccc4b931be01ac6cab0a9691be77bf))
+
 ## [2.0.0](https://github.com/haru52/clean-user-manager/compare/v1.0.0...v2.0.0) (2022-08-30)
 
 
