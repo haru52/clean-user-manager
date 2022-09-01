@@ -1,6 +1,7 @@
 import 'reflect-metadata';
 import { container } from 'tsyringe';
 import DependencyInjectorForTest from '../../../di/dependency-injector-for-test';
+import RegistrationError from '../../../use-cases/registration-error';
 import TYPES from '../../../di/types';
 import { UserRegisterOutputData } from '../../../use-cases/user/register/user-register-output-data';
 import UserRegisterPresenter from './user-register-presenter';
@@ -32,5 +33,19 @@ describe('#handle', () => {
       isErr: false,
     };
     expect(printSpy).toHaveBeenCalledWith(viewModel);
+  });
+
+  test("hasn't thrown an error with an errored outputData", () => {
+    const erroredOutputData: UserRegisterOutputData = {
+      err: new RegistrationError(),
+    };
+    expect(() => presenter.handle(erroredOutputData)).not.toThrow();
+  });
+
+  test('view.print() has been called with the errored viewModel', () => {
+    const partialViewModel: Pick<ViewModel, 'isErr'> = { isErr: true };
+    expect(printSpy).toHaveBeenLastCalledWith(
+      expect.objectContaining(partialViewModel)
+    );
   });
 });
