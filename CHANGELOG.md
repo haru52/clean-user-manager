@@ -1,3 +1,10 @@
+## [3.1.0](https://github.com/haru52/clean-user-manager/compare/v3.0.0...v3.1.0) (2022-09-01)
+
+
+### Features
+
+* change DbCreationError to DbConnectionError ([7823f22](https://github.com/haru52/clean-user-manager/commit/7823f2215d535abf4dd1684e8866c341fe6e198b))
+
 ## [3.0.0](https://github.com/haru52/clean-user-manager/compare/v2.0.0...v3.0.0) (2022-09-01)
 
 
