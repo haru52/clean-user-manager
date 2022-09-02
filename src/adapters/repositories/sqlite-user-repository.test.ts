@@ -1,4 +1,4 @@
-import '../../di/dependency-injector-for-test';
+import '../../di/inject-dependencies-for-test';
 import { container } from 'tsyringe';
 import NotFoundError from './errors/not-found-error';
 import SqliteDbConnector from './sqlite-db-connector';

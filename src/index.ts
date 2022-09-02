@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import './di/dependency-injector';
+import './di/inject-dependencies';
 import { container } from 'tsyringe';
 import ConsoleUi from './external/ui/console-ui';
 import SqliteDbConnector from './adapters/repositories/sqlite-db-connector';

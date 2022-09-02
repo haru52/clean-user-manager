@@ -1,4 +1,4 @@
-import '../../di/dependency-injector-for-test';
+import '../../di/inject-dependencies-for-test';
 import { container } from 'tsyringe';
 import TYPES from '../../di/types';
 import UserController from './user-controller';

@@ -1,4 +1,4 @@
-import '../../../di/dependency-injector-for-test';
+import '../../../di/inject-dependencies-for-test';
 import { container } from 'tsyringe';
 import RegistrationError from '../../../use-cases/registration-error';
 import TYPES from '../../../di/types';
