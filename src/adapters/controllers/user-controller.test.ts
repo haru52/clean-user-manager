@@ -1,12 +1,9 @@
-import 'reflect-metadata';
+import '../../di/dependency-injector-for-test';
 import { container } from 'tsyringe';
-import DependencyInjectorForTest from '../../di/dependency-injector-for-test';
 import TYPES from '../../di/types';
 import UserController from './user-controller';
 import { UserRegisterInputData } from '../../use-cases/user/register/user-register-input-data';
 import { UserRegisterInputPort } from '../../use-cases/user/register/user-register-input-port';
-
-DependencyInjectorForTest.run();
 
 describe('#register("John Doe")', () => {
   const registerInputPort = container.resolve<UserRegisterInputPort>(

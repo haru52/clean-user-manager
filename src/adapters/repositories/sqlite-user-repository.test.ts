@@ -1,12 +1,9 @@
-import 'reflect-metadata';
+import '../../di/dependency-injector-for-test';
 import { container } from 'tsyringe';
-import DependencyInjectorForTest from '../../di/dependency-injector-for-test';
 import NotFoundError from './errors/not-found-error';
 import SqliteDbConnector from './sqlite-db-connector';
 import SqliteUserRepository from './sqlite-user-repository';
 import User from '../../entities/user';
-
-DependencyInjectorForTest.run();
 
 const dbConnector = container.resolve(SqliteDbConnector);
 const sqliteUserRepository = new SqliteUserRepository(dbConnector);

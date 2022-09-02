@@ -1,14 +1,11 @@
-import 'reflect-metadata';
+import '../../../di/dependency-injector-for-test';
 import { container } from 'tsyringe';
-import DependencyInjectorForTest from '../../../di/dependency-injector-for-test';
 import TYPES from '../../../di/types';
 import { UserRegisterInputData } from './user-register-input-data';
 import UserRegisterInteractor from './user-register-interactor';
 import { UserRegisterOutputData } from './user-register-output-data';
 import { UserRegisterOutputPort } from './user-register-output-port';
 import { UserRepository } from '../user-repository';
-
-DependencyInjectorForTest.run();
 
 describe('#handle({ name: "John Doe" })', () => {
   const repository = container.resolve<UserRepository>(TYPES.UserRepository);

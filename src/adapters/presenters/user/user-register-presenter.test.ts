@@ -1,14 +1,11 @@
-import 'reflect-metadata';
+import '../../../di/dependency-injector-for-test';
 import { container } from 'tsyringe';
-import DependencyInjectorForTest from '../../../di/dependency-injector-for-test';
 import RegistrationError from '../../../use-cases/registration-error';
 import TYPES from '../../../di/types';
 import { UserRegisterOutputData } from '../../../use-cases/user/register/user-register-output-data';
 import UserRegisterPresenter from './user-register-presenter';
 import { View } from '../../view';
 import { ViewModel } from '../../view-model';
-
-DependencyInjectorForTest.run();
 
 describe('#handle', () => {
   const view = container.resolve<View>(TYPES.View);
