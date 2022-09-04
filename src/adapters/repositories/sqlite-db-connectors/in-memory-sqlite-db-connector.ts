@@ -1,5 +1,5 @@
 import { singleton } from 'tsyringe';
-import { SqliteDbConnector } from './sqlite-db-connector';
+import { SqliteDbConnector } from '../sqlite-db-connector';
 import SqliteDbConnectorCore from './sqlite-db-connector-core';
 
 @singleton()

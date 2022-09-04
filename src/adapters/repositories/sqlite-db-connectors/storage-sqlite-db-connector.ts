@@ -3,7 +3,7 @@ import path from 'path';
 import process from 'process';
 import { singleton } from 'tsyringe';
 import DbConnectionError from '../../../errors/db-connection-error';
-import { SqliteDbConnector } from './sqlite-db-connector';
+import { SqliteDbConnector } from '../sqlite-db-connector';
 import SqliteDbConnectorCore from './sqlite-db-connector-core';
 
 @singleton()
