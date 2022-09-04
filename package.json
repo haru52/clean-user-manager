@@ -38,8 +38,8 @@
     "url": "git+https://github.com/haru52/clean-user-manager.git"
   },
   "keywords": [
-    "Clean Architecture",
-    "CLI"
+    "clean-architecture",
+    "cli"
   ],
   "author": {
     "name": "haru",
