@@ -1,4 +1,4 @@
-import './inject-dependencies-base';
+import './inject-common-dependencies';
 import { container } from 'tsyringe';
 import InMemorySqliteDbConnector from '../adapters/repositories/sqlite-db-connectors/in-memory-sqlite-db-connector';
 import TYPES from './types';

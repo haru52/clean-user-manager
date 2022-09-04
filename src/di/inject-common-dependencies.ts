@@ -8,7 +8,7 @@ import UserRegisterPresenter from '../adapters/presenters/user/user-register-pre
 
 const packageData = require('../../package.json');
 
-// Common
+// General
 container.register(TYPES.PackageData, {
   useValue: packageData,
 });
