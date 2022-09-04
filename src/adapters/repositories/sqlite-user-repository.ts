@@ -81,10 +81,6 @@ export default class SqliteUserRepository implements UserRepository {
     });
   }
 
-  close() {
-    this.#db.close();
-  }
-
   #tableExists() {
     return new Promise<boolean>((resolve, reject) => {
       this.#db.all(
