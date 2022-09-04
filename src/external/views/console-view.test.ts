@@ -4,13 +4,19 @@ import { ViewModel } from '../../adapters/view-model';
 describe('#print', () => {
   const view = new ConsoleView();
 
-  test("hasn't thrown an error without error viewModel", () => {
-    const viewModel: ViewModel = { message: 'Hello, world!', isErr: false };
-    expect(() => view.print(viewModel)).not.toThrow();
+  test('console.log() has been called with "Hello, world!"', () => {
+    const logSpy = jest.spyOn(console, 'log');
+    const message = 'Hello, world!';
+    const viewModel: ViewModel = { message, isErr: false };
+    view.print(viewModel);
+    expect(logSpy).toHaveBeenCalledWith(message);
   });
 
-  test("hasn't thrown an error with error viewModel", () => {
-    const viewModel: ViewModel = { message: 'Error!', isErr: true };
-    expect(() => view.print(viewModel)).not.toThrow();
+  test('console.error() has been called with "Error!"', () => {
+    const errorSpy = jest.spyOn(console, 'error');
+    const message = 'Error!';
+    const viewModel: ViewModel = { message, isErr: true };
+    view.print(viewModel);
+    expect(errorSpy).toHaveBeenCalledWith(message);
   });
 });
