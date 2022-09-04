@@ -1,4 +1,4 @@
 {
   "extends": "./tsconfig.json",
-  "exclude": ["./src/**/*.test.ts", "./src/di/inject-dependencies-for-test.ts"]
+  "exclude": ["./src/**/*.test.ts", "./src/di/inject-test-dependencies.ts"]
 }
