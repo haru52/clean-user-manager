@@ -1,7 +1,7 @@
 const TYPES = {
-  // Common
+  // General
   PackageData: Symbol.for('PackageData'),
-  UseInMemory: Symbol.for('UseInMemory'),
+  SqliteDbConnector: Symbol.for('SqliteDbConnector'),
   View: Symbol.for('View'),
 
   // User

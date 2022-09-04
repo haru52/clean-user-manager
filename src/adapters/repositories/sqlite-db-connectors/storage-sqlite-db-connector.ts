@@ -1,32 +1,33 @@
 import fs from 'fs';
 import path from 'path';
 import process from 'process';
-import { inject, singleton } from 'tsyringe';
-import sqlite3 from 'sqlite3';
-import DbConnectionError from './errors/db-connection-error';
-import TYPES from '../../di/types';
+import { singleton } from 'tsyringe';
+import DbConnectionError from '../errors/db-connection-error';
+import { SqliteDbConnector } from './sqlite-db-connector';
+import SqliteDbConnectorCore from './sqlite-db-connector-core';
 
 @singleton()
-export default class SqliteDbConnector {
+export default class StorageSqliteDbConnector implements SqliteDbConnector {
   readonly db;
 
+  readonly #core;
+
   /**
-   * Initialize an SqliteDbConnector instance.
+   * Initialize a StorageSqliteDbConnector instance.
    *
-   * @param useInMemory - Whether to use an in memory DB or a DB file
-   * @returns SqliteDbConnector instance
+   * @returns StorageSqliteDbConnector instance
    *
    * @throws {@link DbConnectionError}
    * This exception is thrown if the home directory can't be found where the DB file resides.
    */
-  constructor(@inject(TYPES.UseInMemory) useInMemory = false) {
-    const sqlite3Client = sqlite3.verbose();
-    const dbPath = useInMemory ? ':memory:' : SqliteDbConnector.getDbPath();
-    this.db = new sqlite3Client.Database(dbPath);
+  constructor() {
+    const dbPath = StorageSqliteDbConnector.getDbPath();
+    this.#core = new SqliteDbConnectorCore(dbPath);
+    this.db = this.#core.db;
   }
 
   close() {
-    this.db.close();
+    this.#core.close();
   }
 
   /**
