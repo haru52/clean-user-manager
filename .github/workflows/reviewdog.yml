@@ -24,6 +24,8 @@ jobs:
             *.sh
             commit-msg
             pre-commit
+      - name: ESLint
+        uses: reviewdog/action-eslint@v1
       - name: actionlint
         uses: reviewdog/action-actionlint@v1
         with:
