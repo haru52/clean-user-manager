@@ -54,6 +54,7 @@ npm i -g @haru52/usermgr
 
 ```sh
 npm r -g @haru52/usermgr
+rm -rf "$HOME"/.usermgr
 ```
 
 ## Versioning policy
