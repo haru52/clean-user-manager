@@ -1,6 +1,6 @@
 import '../../../di/inject-test-dependencies';
 import { container } from 'tsyringe';
-import RegistrationError from '../../../use-cases/registration-error';
+import RegistrationError from '../../../errors/registration-error';
 import TYPES from '../../../di/types';
 import { UserRegisterOutputData } from '../../../use-cases/user/register/user-register-output-data';
 import UserRegisterPresenter from './user-register-presenter';

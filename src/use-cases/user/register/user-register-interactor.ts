@@ -1,5 +1,5 @@
 import { inject, injectable } from 'tsyringe';
-import RegistrationError from '../../registration-error';
+import RegistrationError from '../../../errors/registration-error';
 import TYPES from '../../../di/types';
 import User from '../../../entities/user';
 import UserName from '../../../entities/user-name';

@@ -1,4 +1,4 @@
-import RegistrationError from '../../registration-error';
+import RegistrationError from '../../../errors/registration-error';
 
 export type UserRegisterOutputData = {
   id?: number;

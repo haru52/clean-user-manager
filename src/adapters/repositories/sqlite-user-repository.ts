@@ -1,5 +1,5 @@
 import { inject, injectable } from 'tsyringe';
-import NotFoundError from './errors/not-found-error';
+import NotFoundError from '../../errors/not-found-error';
 import { SqliteDbConnector } from './sqlite-db-connectors/sqlite-db-connector';
 import TYPES from '../../di/types';
 import User from '../../entities/user';
