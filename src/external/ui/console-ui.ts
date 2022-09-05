@@ -33,11 +33,9 @@ export default class ConsoleUi {
         .description('register a new user')
         .argument('<name>', 'user name')
         .action(async (name) => {
-          await this.#userController
-            .register(name)
-            .catch(<E extends Error>(e: E) => {
-              reject(e);
-            });
+          await this.#userController.register(name).catch((e: unknown) => {
+            reject(e);
+          });
           resolve();
         });
 
