@@ -15,7 +15,7 @@ export default class StorageSqliteDbConnector implements SqliteDbConnector {
   /**
    * Initialize a StorageSqliteDbConnector instance.
    *
-   * @returns StorageSqliteDbConnector instance
+   * @returns The StorageSqliteDbConnector instance
    *
    * @throws {@link DbConnectionError}
    * This exception is thrown if the home directory can't be found where the DB file resides.
@@ -33,7 +33,7 @@ export default class StorageSqliteDbConnector implements SqliteDbConnector {
   /**
    * Get the DB file path.
    *
-   * @returns DB file path
+   * @returns The DB file path
    *
    * @throws {@link DbConnectionError}
    * This exception is thrown if the home directory can't be found where the DB file resides.

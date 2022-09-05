@@ -6,8 +6,6 @@ import UserController from '../../adapters/controllers/user-controller';
 
 @injectable()
 export default class ConsoleUi {
-  readonly #program = new Command();
-
   readonly #packageData;
 
   readonly #userController;
@@ -21,15 +19,16 @@ export default class ConsoleUi {
   }
 
   handle() {
+    const program = new Command();
     const commandName = this.#packageData.name.split('/')[1];
 
-    this.#program
+    program
       .name(commandName)
       .description(this.#packageData.description)
       .version(this.#packageData.version);
 
     return new Promise<void>((resolve, reject) => {
-      this.#program
+      program
         .command('register')
         .description('register a new user')
         .argument('<name>', 'user name')
@@ -42,7 +41,7 @@ export default class ConsoleUi {
           resolve();
         });
 
-      this.#program.parse();
+      program.parse();
     });
   }
 }

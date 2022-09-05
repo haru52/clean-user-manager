@@ -28,18 +28,15 @@ export default class UserRegisterInteractor implements UserRegisterInputPort {
     let user: User | void | undefined;
 
     try {
-      UserName.validate(inputData.name);
-    } catch (e: unknown) {
-      if (!(e instanceof Error)) throw e;
-      err = UserRegisterInteractor.createRegistrationError(inputData, e);
-    }
-
-    if (err === undefined) {
+      const name = new UserName(inputData.name);
       user = await this.#repository
-        .save(inputData.name)
+        .save(name)
         .catch(<E extends Error>(e: E) => {
           err = UserRegisterInteractor.createRegistrationError(inputData, e);
         });
+    } catch (e: unknown) {
+      if (!(e instanceof Error)) throw e;
+      err = UserRegisterInteractor.createRegistrationError(inputData, e);
     }
 
     const outputData: UserRegisterOutputData = {

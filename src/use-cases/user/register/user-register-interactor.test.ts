@@ -1,6 +1,7 @@
 import '../../../di/inject-test-dependencies';
 import { container } from 'tsyringe';
 import TYPES from '../../../di/types';
+import UserName from '../../../entities/user-name';
 import { UserRegisterInputData } from './user-register-input-data';
 import UserRegisterInteractor from './user-register-interactor';
 import { UserRegisterOutputData } from './user-register-output-data';
@@ -27,7 +28,7 @@ describe('#handle({ name: "John Doe" })', () => {
   });
 
   test('userRepository.save has been called with "John Doe"', () => {
-    expect(saveSpy).toHaveBeenCalledWith(name);
+    expect(saveSpy).toHaveBeenCalledWith(new UserName(name));
   });
 
   const handleSpy = jest.spyOn(outputPort, 'handle');

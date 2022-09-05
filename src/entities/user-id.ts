@@ -4,10 +4,11 @@ export default class UserId {
   /**
    * Initialize a UserId instance.
    *
-   * @param value - ID value. This must be a natural number
+   * @param value - The ID value. This must be a natural number
+   * @returns The UserId instance
    *
    * @throws {@link TypeError}
-   * This exception is thrown if the input isn't valid.
+   * This exception is thrown if the input is invalid.
    */
   constructor(value: number) {
     if (!UserId.#validate(value))

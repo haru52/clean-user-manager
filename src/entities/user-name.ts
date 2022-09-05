@@ -8,31 +8,23 @@ export default class UserName {
   /**
    * Initialize a UserName instance.
    *
-   * @param value - Name value. This must be 1 to 128 characters
+   * @param value - The name value. This must be 1 to 128 characters
+   * @returns The UserName instance
    *
    * @throws {@link TypeError}
-   * This exception is thrown if the input isn't valid.
+   * This exception is thrown if the input is invalid.
    */
   constructor(value: string) {
-    UserName.validate(value);
+    if (!UserName.#validate(value))
+      throw new TypeError('User name must be 1 to 128 characters');
 
     this.value = value;
   }
 
-  /**
-   * Validate a value of UserName.
-   *
-   * @param value - Name value. This must be 1 to 128 characters
-   *
-   * @throws {@link TypeError}
-   * This exception is thrown if the input isn't valid.
-   */
-  static validate(value: string) {
-    if (
-      value.length < UserName.#minNameLength ||
-      value.length > UserName.#maxNameLength
-    ) {
-      throw new TypeError('User name must be 1 to 128 characters');
-    }
+  static #validate(value: string) {
+    return (
+      value.length >= UserName.#minNameLength &&
+      value.length <= UserName.#maxNameLength
+    );
   }
 }
