@@ -39,7 +39,7 @@ export default class SqliteUserRepository implements UserRepository {
             if (rows.length === 0) {
               reject(
                 new NotFoundError(
-                  `Not found a user which name is “${name.value}”`
+                  `Not found the newly inserted user which name is “${name.value}”`
                 )
               );
               return;

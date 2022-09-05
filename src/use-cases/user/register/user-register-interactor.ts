@@ -29,13 +29,10 @@ export default class UserRegisterInteractor implements UserRegisterInputPort {
 
     try {
       const name = new UserName(inputData.name);
-      user = await this.#repository
-        .save(name)
-        .catch(<E extends Error>(e: E) => {
-          err = UserRegisterInteractor.createRegistrationError(inputData, e);
-        });
+      user = await this.#repository.save(name).catch((e: unknown) => {
+        err = UserRegisterInteractor.createRegistrationError(inputData, e);
+      });
     } catch (e: unknown) {
-      if (!(e instanceof Error)) throw e;
       err = UserRegisterInteractor.createRegistrationError(inputData, e);
     }
 
@@ -49,12 +46,15 @@ export default class UserRegisterInteractor implements UserRegisterInputPort {
     if (err !== undefined) throw err;
   }
 
-  private static createRegistrationError<E extends Error>(
+  private static createRegistrationError(
     inputData: UserRegisterInputData,
-    e: E
+    err: unknown
   ) {
-    return new RegistrationError(
-      `Failed to register the user “${inputData.name}”.\n${e.name}: ${e.message}`
-    );
+    const header = `Failed to register the user “${inputData.name}”.\n`;
+    const message =
+      err instanceof Error
+        ? `${header}${err.name}: ${err.message}`
+        : `${header}${err}`;
+    return new RegistrationError(message);
   }
 }
