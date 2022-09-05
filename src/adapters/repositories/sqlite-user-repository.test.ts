@@ -25,7 +25,7 @@ describe('#save', () => {
     );
   });
 
-  test('save("John Doe") has been rejected due to duplication', async () => {
+  test('save("John Doe") has been rejected due to the duplication', async () => {
     await expect(repository.save(new UserName(name))).rejects.toThrow();
   });
 });
@@ -38,6 +38,6 @@ describe('#find', () => {
   });
 
   test('find(2) returns null', async () => {
-    await expect(repository.find(new UserId(2))).resolves.toBe(null);
+    await expect(repository.find(new UserId(2))).resolves.toBeNull();
   });
 });

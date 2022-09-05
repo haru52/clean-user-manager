@@ -4,7 +4,7 @@ import SqliteDbConnectorCore from './sqlite-db-connector-core';
 const core = new SqliteDbConnectorCore(':memory:');
 
 describe('#constructor', () => {
-  test('db property is instance of sqlite3.Database', () => {
+  test('db property is an instance of sqlite3.Database', () => {
     expect(core.db).toBeInstanceOf(sqlite3.Database);
   });
 });
