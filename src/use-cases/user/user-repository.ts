@@ -1,15 +1,15 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import NotFoundError from '../../errors/not-found-error';
+import { UnsavedUser } from '../../types';
 import User from '../../entities/user';
 import UserId from '../../entities/user-id';
-import UserName from '../../entities/user-name';
 
 export interface UserRepository {
   /**
    * Save a new user to the DB.
    *
-   * @param name - The user name to save
-   * @returns The saved user instance
+   * @param user - The user to save
+   * @returns The ID of the saved user
    *
    * @throws {@link NotFoundError}
    * This exception is thrown if the user is not found after the insertion of a new user to the DB.
@@ -20,7 +20,7 @@ export interface UserRepository {
    * @throws {@link Error}
    * Thrown if the DB throws an unexpected error.
    */
-  save(name: UserName): Promise<User>;
+  save(user: UnsavedUser): Promise<UserId>;
 
   /**
    * Find a user from the DB.

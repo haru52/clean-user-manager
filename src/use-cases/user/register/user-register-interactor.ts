@@ -1,7 +1,8 @@
 import { inject, injectable } from 'tsyringe';
 import RegistrationError from '../../../errors/registration-error';
 import TYPES from '../../../di/types';
-import User from '../../../entities/user';
+import { UnsavedUser } from '../../../types';
+import UserId from '../../../entities/user-id';
 import UserName from '../../../entities/user-name';
 import { UserRegisterInputData } from './user-register-input-data';
 import { UserRegisterInputPort } from './user-register-input-port';
@@ -24,12 +25,14 @@ export default class UserRegisterInteractor implements UserRegisterInputPort {
   }
 
   async handle(inputData: UserRegisterInputData) {
+    let name: UserName | undefined;
+    let id: UserId | void | undefined;
     let err: RegistrationError | undefined;
-    let user: User | void | undefined;
 
     try {
-      const name = new UserName(inputData.name);
-      user = await this.#repository.save(name).catch((e: unknown) => {
+      name = new UserName(inputData.name);
+      const user: UnsavedUser = { name };
+      id = await this.#repository.save(user).catch((e: unknown) => {
         err = UserRegisterInteractor.createRegistrationError(inputData, e);
       });
     } catch (e: unknown) {
@@ -37,8 +40,8 @@ export default class UserRegisterInteractor implements UserRegisterInputPort {
     }
 
     const outputData: UserRegisterOutputData = {
-      id: user?.id.value,
-      name: user?.name.value,
+      id: id?.value,
+      name: name?.value,
       err,
     };
     this.#outputPort.handle(outputData);

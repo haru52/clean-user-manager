@@ -2,6 +2,7 @@ import { inject, injectable } from 'tsyringe';
 import NotFoundError from '../../errors/not-found-error';
 import { SqliteDbConnector } from './sqlite-db-connector';
 import TYPES from '../../di/types';
+import { UnsavedUser } from '../../types';
 import User from '../../entities/user';
 import UserId from '../../entities/user-id';
 import UserName from '../../entities/user-name';
@@ -15,22 +16,22 @@ export default class SqliteUserRepository implements UserRepository {
     this.#db = dbConnector.db;
   }
 
-  async save(name: UserName) {
+  async save(user: UnsavedUser) {
     const usersTableExists = await this.#tableExists();
     if (!usersTableExists) await this.#createTable();
 
-    return new Promise<User>((resolve, reject) => {
+    return new Promise<UserId>((resolve, reject) => {
       this.#db.serialize(() => {
         this.#db.run(
           'INSERT INTO users (name) VALUES (?)',
-          name.value,
+          user.name.value,
           (err: Error | null) => {
             if (err !== null) reject(err);
           }
         );
         this.#db.all(
           'SELECT id FROM users WHERE name = ?',
-          name.value,
+          user.name.value,
           (err: Error | null, rows: any[]) => {
             if (err !== null) {
               reject(err);
@@ -39,15 +40,14 @@ export default class SqliteUserRepository implements UserRepository {
             if (rows.length === 0) {
               reject(
                 new NotFoundError(
-                  `Not found the newly inserted user which name is “${name.value}”`
+                  `Not found the newly inserted user which name is “${user.name.value}”`
                 )
               );
               return;
             }
             try {
               const id = new UserId(rows[0].id);
-              const user = new User(id, name);
-              resolve(user);
+              resolve(id);
             } catch (e: unknown) {
               reject(e);
             }

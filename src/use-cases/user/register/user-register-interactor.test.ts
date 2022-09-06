@@ -2,6 +2,7 @@ import '../../../di/inject-test-dependencies';
 import { container } from 'tsyringe';
 import RegistrationError from '../../../errors/registration-error';
 import TYPES from '../../../di/types';
+import { UnsavedUser } from '../../../types';
 import UserName from '../../../entities/user-name';
 import { UserRegisterInputData } from './user-register-input-data';
 import UserRegisterInteractor from './user-register-interactor';
@@ -29,8 +30,9 @@ describe('#handle with a normal inputData', () => {
     expect(saveSpy).toHaveBeenCalledTimes(1);
   });
 
-  test('userRepository#save has been called with "John Doe"', () => {
-    expect(saveSpy).toHaveBeenCalledWith(new UserName(name));
+  test('userRepository#save has been called with { name: "John Doe" }', () => {
+    const user: UnsavedUser = { name: new UserName(name) };
+    expect(saveSpy).toHaveBeenCalledWith(user);
   });
 
   const outputPorthandleSpy = jest.spyOn(outputPort, 'handle');
