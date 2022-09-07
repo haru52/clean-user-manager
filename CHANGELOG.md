@@ -1,3 +1,10 @@
+## [3.4.0](https://github.com/haru52/clean-user-manager/compare/v3.3.0...v3.4.0) (2022-09-07)
+
+
+### Features
+
+* add `show` subcommand ([23be474](https://github.com/haru52/clean-user-manager/commit/23be4743649ecaf666c5808d13454e4bd610cb3f))
+
 ## [3.3.0](https://github.com/haru52/clean-user-manager/compare/v3.2.0...v3.3.0) (2022-09-05)
 
 
