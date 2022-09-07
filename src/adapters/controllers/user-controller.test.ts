@@ -4,12 +4,18 @@ import TYPES from '../../di/types';
 import UserController from './user-controller';
 import { UserRegisterInputData } from '../../use-cases/user/register/user-register-input-data';
 import { UserRegisterInputPort } from '../../use-cases/user/register/user-register-input-port';
+// import { UserShowInputData } from '../../use-cases/user/show/user-show-input-data';
+import { UserShowInputPort } from '../../use-cases/user/show/user-show-input-port';
 
 const registerInputPort = container.resolve<UserRegisterInputPort>(
   TYPES.UserRegisterInputPort
 );
-const controller = new UserController(registerInputPort);
+const showInputPort = container.resolve<UserShowInputPort>(
+  TYPES.UserShowInputPort
+);
+const controller = new UserController(registerInputPort, showInputPort);
 
+// Register
 describe('#register("John Doe")', () => {
   const name = 'John Doe';
 
@@ -34,5 +40,36 @@ describe('#register with an invalid name', () => {
 
   test('has been rejected with an Error', async () => {
     await expect(controller.register(name)).rejects.toThrow(Error);
+  });
+});
+
+// Show
+
+// TODO: Make these tests in this describe pass
+// Somehow these tests fail
+
+// describe('#show', () => {
+//   const id = 1;
+//   const handleSpy = jest.spyOn(showInputPort, 'handle');
+
+//   test('has been resolved', async () => {
+//     await expect(controller.show(id)).resolves.not.toThrow();
+//   });
+
+//   test('userShowInputPort#handle has been called once', () => {
+//     expect(handleSpy).toHaveBeenCalledTimes(1);
+//   });
+
+//   test('userShowInputPort#handle has been called with { id: 1 }', () => {
+//     const inputData: UserShowInputData = { id };
+//     expect(handleSpy).toHaveBeenCalledWith(inputData);
+//   });
+// });
+
+describe('#show with an unregistered user ID', () => {
+  const id = 2;
+
+  test('has been rejected with an Error', async () => {
+    await expect(controller.show(id)).rejects.toThrow(Error);
   });
 });

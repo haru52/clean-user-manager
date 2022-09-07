@@ -39,6 +39,19 @@ export default class ConsoleUi {
           resolve();
         });
 
+      program
+        .command('show')
+        .description('show the user')
+        .argument('<id>', 'target user ID')
+        .action(async (id) => {
+          await this.#userController
+            .show(parseFloat(id))
+            .catch((e: unknown) => {
+              reject(e);
+            });
+          resolve();
+        });
+
       program.parse();
     });
   }

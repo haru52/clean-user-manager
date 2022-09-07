@@ -5,6 +5,8 @@ import SqliteUserRepository from '../adapters/repositories/sqlite-user-repositor
 import TYPES from './types';
 import UserRegisterInteractor from '../use-cases/user/register/user-register-interactor';
 import UserRegisterPresenter from '../adapters/presenters/user/user-register-presenter';
+import UserShowInteractor from '../use-cases/user/show/user-show-interactor';
+import UserShowPresenter from '../adapters/presenters/user/user-show-presenter';
 
 const packageData = require('../../package.json');
 
@@ -27,4 +29,12 @@ container.register(TYPES.UserRegisterInputPort, {
 });
 container.register(TYPES.UserRegisterOutputPort, {
   useClass: UserRegisterPresenter,
+});
+
+// Show
+container.register(TYPES.UserShowInputPort, {
+  useClass: UserShowInteractor,
+});
+container.register(TYPES.UserShowOutputPort, {
+  useClass: UserShowPresenter,
 });

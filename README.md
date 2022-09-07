@@ -37,6 +37,7 @@ Options:
 
 Commands:
   register <name>  register a new user
+  show <id>        show the user
   help [command]   display help for command
 ```
 
