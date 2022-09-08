@@ -1,6 +1,5 @@
 const TYPES = {
   // General
-  PackageData: Symbol.for('PackageData'),
   SqliteDbConnector: Symbol.for('SqliteDbConnector'),
   View: Symbol.for('View'),
 

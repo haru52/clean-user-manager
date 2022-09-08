@@ -1,31 +1,23 @@
 import { Command } from 'commander';
-import { inject, injectable } from 'tsyringe';
-import { PackageData } from './package-data';
-import TYPES from '../../di/types';
+import { injectable } from 'tsyringe';
+import PackageData from '../../data/package-data.json';
 import UserController from '../../adapters/controllers/user-controller';
 
 @injectable()
 export default class ConsoleUi {
-  readonly #packageData;
-
   readonly #userController;
 
-  constructor(
-    @inject(TYPES.PackageData) packageData: PackageData,
-    userController: UserController
-  ) {
-    this.#packageData = packageData;
+  constructor(userController: UserController) {
     this.#userController = userController;
   }
 
   handle() {
     const program = new Command();
-    const commandName = this.#packageData.name.split('/')[1];
 
     program
-      .name(commandName)
-      .description(this.#packageData.description)
-      .version(this.#packageData.version);
+      .name(PackageData.name)
+      .description(PackageData.description)
+      .version(PackageData.version);
 
     return new Promise<void>((resolve, reject) => {
       program

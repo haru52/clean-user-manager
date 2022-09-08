@@ -8,12 +8,7 @@ import UserRegisterPresenter from '../adapters/presenters/user/user-register-pre
 import UserShowInteractor from '../use-cases/user/show/user-show-interactor';
 import UserShowPresenter from '../adapters/presenters/user/user-show-presenter';
 
-const packageData = require('../../package.json');
-
 // General
-container.register(TYPES.PackageData, {
-  useValue: packageData,
-});
 container.register(TYPES.View, {
   useClass: ConsoleView,
 });

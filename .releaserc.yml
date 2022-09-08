@@ -16,6 +16,16 @@ plugins:
   - "@semantic-release/release-notes-generator"
   - "@semantic-release/npm"
   - "@semantic-release/changelog"
-  - "@semantic-release/git"
+  -
+    - "@semantic-release/git"
+    # https://github.com/semantic-release/git#options
+    # Default: ['CHANGELOG.md', 'package.json', 'package-lock.json',
+    #          'npm-shrinkwrap.json']
+    - assets:
+        - CHANGELOG.md
+        - package.json
+        - package-lock.json
+        - npm-shrinkwrap.json
+        - src/data/package-data.json
   - "@semantic-release/github"
 preset: conventionalcommits
