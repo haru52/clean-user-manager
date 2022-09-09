@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 import TYPES from '../../../di/types';
-import { UserRegisterOutputData } from '../../../use-cases/user/register/user-register-output-data';
-import { UserRegisterOutputPort } from '../../../use-cases/user/register/user-register-output-port';
+import { UserRegisterOutputData } from '../../../usecases/user/register/user-register-output-data';
+import { UserRegisterOutputPort } from '../../../usecases/user/register/user-register-output-port';
 import { View } from '../../view';
 import { ViewModel } from '../../view-model';
 

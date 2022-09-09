@@ -2,7 +2,7 @@ import '../../../di/inject-test-dependencies';
 import { container } from 'tsyringe';
 import ShowingError from '../../../errors/showing-error';
 import TYPES from '../../../di/types';
-import { UserShowOutputData } from '../../../use-cases/user/show/user-show-output-data';
+import { UserShowOutputData } from '../../../usecases/user/show/user-show-output-data';
 import UserShowPresenter from './user-show-presenter';
 import { View } from '../../view';
 import { ViewModel } from '../../view-model';

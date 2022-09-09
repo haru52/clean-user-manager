@@ -6,7 +6,7 @@ import { UnsavedUser } from '../../types';
 import User from '../../entities/user';
 import UserId from '../../entities/user-id';
 import UserName from '../../entities/user-name';
-import { UserRepository } from '../../use-cases/user/user-repository';
+import { UserRepository } from '../../usecases/user/user-repository';
 
 @injectable()
 export default class SqliteUserRepository implements UserRepository {
