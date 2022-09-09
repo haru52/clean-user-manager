@@ -3,10 +3,6 @@
   "compilerOptions": {
     "rootDir": "./src/"
   },
-  "exclude": [
-    "*/**/*.test.ts",
-    "./jest.config.ts",
-    "./bin/",
-    "./src/di/inject-test-dependencies.ts"
-  ]
+  "include": ["./src/"],
+  "exclude": ["*/**/*.test.ts", "./src/di/inject-test-dependencies.ts"]
 }
