@@ -1,5 +1,5 @@
 import ConsoleView from './console-view';
-import { ViewModel } from '../../adapters/view-model';
+import { ViewModel } from '../../adapters/presenters/view-model';
 
 describe('#print', () => {
   const view = new ConsoleView();

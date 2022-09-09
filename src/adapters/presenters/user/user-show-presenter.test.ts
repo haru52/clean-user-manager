@@ -4,8 +4,8 @@ import ShowingError from '../../../errors/showing-error';
 import TYPES from '../../../di/types';
 import { UserShowOutputData } from '../../../usecases/user/show/user-show-output-data';
 import UserShowPresenter from './user-show-presenter';
-import { View } from '../../view';
-import { ViewModel } from '../../view-model';
+import { View } from '../view';
+import { ViewModel } from '../view-model';
 
 const view = container.resolve<View>(TYPES.View);
 const presenter = new UserShowPresenter(view);
