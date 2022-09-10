@@ -8,5 +8,5 @@
 "*.{yml,yaml}": make lint-yml
 "*.sh": shellcheck
 ".husky/*": shellcheck
-"*.{ts,js}": eslint --cache
+"*.ts": eslint --cache
 ".github/workflows/*.{yml,yaml}": actionlint
