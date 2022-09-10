@@ -4,6 +4,7 @@
 
 [![Test](https://github.com/haru52/clean-user-manager/actions/workflows/test.yml/badge.svg)](https://github.com/haru52/clean-user-manager/actions/workflows/test.yml)
 [![Release](https://github.com/haru52/clean-user-manager/actions/workflows/release.yml/badge.svg)](https://github.com/haru52/clean-user-manager/actions/workflows/release.yml)
+[![CodeQL](https://github.com/haru52/clean-user-manager/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/haru52/clean-user-manager/actions/workflows/codeql-analysis.yml)
 [![Copy/Paste](report/jscpd-badge.svg)](report/jscpd-report.md)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](https://commitizen.github.io/cz-cli/)
