@@ -26,6 +26,7 @@ plugins:
         - package.json
         - package-lock.json
         - npm-shrinkwrap.json
+        - report
         - src/data/package-data.json
   - "@semantic-release/github"
 preset: conventionalcommits

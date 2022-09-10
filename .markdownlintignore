@@ -1,4 +1,5 @@
 node_modules/
 /.github/vale_styles/
+/report/
 /CHANGELOG.md
 /CODE_OF_CONDUCT.md

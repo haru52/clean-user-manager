@@ -5,6 +5,7 @@ Contributing Guideline
 conventionalcommits
 gibo
 haru
+jscpd
 npm
 nrslib
 repo
