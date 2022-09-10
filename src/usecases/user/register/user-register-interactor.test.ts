@@ -18,13 +18,13 @@ const interactor = new UserRegisterInteractor(repository, outputPort);
 
 describe('#handle with a normal inputData', () => {
   const name = 'John Doe';
+  const saveSpy = jest.spyOn(repository, 'save');
+  const outputPorthandleSpy = jest.spyOn(outputPort, 'handle');
 
   test('has been resolved', async () => {
     const inputData: UserRegisterInputData = { name };
     await expect(interactor.handle(inputData)).resolves.not.toThrow();
   });
-
-  const saveSpy = jest.spyOn(repository, 'save');
 
   test('userRepository#save has been called once', () => {
     expect(saveSpy).toHaveBeenCalledTimes(1);
@@ -34,8 +34,6 @@ describe('#handle with a normal inputData', () => {
     const user: UnsavedUser = { name: new UserName(name) };
     expect(saveSpy).toHaveBeenCalledWith(user);
   });
-
-  const outputPorthandleSpy = jest.spyOn(outputPort, 'handle');
 
   test('userRegisterOutputPort#handle has been called once', () => {
     expect(outputPorthandleSpy).toHaveBeenCalledTimes(1);

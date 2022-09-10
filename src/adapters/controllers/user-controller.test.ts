@@ -18,12 +18,11 @@ const controller = new UserController(registerInputPort, showInputPort);
 // Register
 describe('#register("John Doe")', () => {
   const name = 'John Doe';
+  const handleSpy = jest.spyOn(registerInputPort, 'handle');
 
   test('has been resolved', async () => {
     await expect(controller.register(name)).resolves.not.toThrow();
   });
-
-  const handleSpy = jest.spyOn(registerInputPort, 'handle');
 
   test('userRegisterInputPort#handle has been called once', () => {
     expect(handleSpy).toHaveBeenCalledTimes(1);
