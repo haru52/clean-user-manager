@@ -14,7 +14,9 @@ branches:
 plugins:
   - "@semantic-release/commit-analyzer"
   - "@semantic-release/release-notes-generator"
-  - "@semantic-release/changelog"
+  -
+    - "@semantic-release/changelog"
+    - changelogFile: docs/CHANGELOG.md
   - "@semantic-release/npm"
   -
     - "@semantic-release/git"
@@ -22,7 +24,7 @@ plugins:
     # Default: ['CHANGELOG.md', 'package.json', 'package-lock.json',
     #          'npm-shrinkwrap.json']
     - assets:
-        - CHANGELOG.md
+        - docs/CHANGELOG.md
         - package.json
         - package-lock.json
         - npm-shrinkwrap.json

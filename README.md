@@ -6,7 +6,7 @@
 [![Release](https://github.com/haru52/clean-user-manager/actions/workflows/release.yml/badge.svg)](https://github.com/haru52/clean-user-manager/actions/workflows/release.yml)
 [![CodeQL](https://github.com/haru52/clean-user-manager/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/haru52/clean-user-manager/actions/workflows/codeql-analysis.yml)
 [![Copy/Paste](report/jscpd-badge.svg)](report/jscpd-report.md)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://haru52.com/clean-user-manager/CODE_OF_CONDUCT.html)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](https://commitizen.github.io/cz-cli/)
 [![semantic-release: conventionalcommits](https://img.shields.io/badge/semantic--release-conventionalcommits-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 
@@ -70,7 +70,11 @@ rm -rf "$HOME"/.usermgr
 
 ## Contributing
 
-[Contributing Guideline](CONTRIBUTING.md)
+[Contributing Guideline](https://haru52.com/clean-user-manager/CONTRIBUTING.html)
+
+## Documentation
+
+[Documentation | clean-user-manager](https://haru52.com/clean-user-manager/)
 
 ## References
 
