@@ -11,5 +11,5 @@
 
 # Others
 /dist/
-/tsconfig.json
 /src/data/package-data.json
+/tsconfig.json
