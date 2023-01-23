@@ -32,7 +32,7 @@
 ## Installation
 
 ```sh
-gh repo clone <your org>/clean-user-manager # Clone the repo
+git clone git@github.com:<your org>/clean-user-manager.git
 cd clean-user-manager
 make dev-install
 ```
